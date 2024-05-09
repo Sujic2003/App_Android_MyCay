@@ -7,15 +7,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class Tang1 extends AppCompatActivity {
-    String table[]= {"A01","A02","A03","A04","A05","A06","A07","A08","A09","A10",};
+public class MangVe extends AppCompatActivity {
+    String table[]= {"MV01","MV02","MV03","MV04","MV05","MV06","MV07","MV08","MV09","MV10",};
     ArrayList<Table> list;
     MyArrayAdapter myadapter;
     GridView Grid_table;
@@ -24,28 +22,41 @@ public class Tang1 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tang1);
+        setContentView(R.layout.activity_mangve);
         Grid_table = (GridView) findViewById(R.id.gridView_table);
         list = new ArrayList<>();//Tạo mới mảng
         for(int i = 0; i< table.length; i++)
         {
             list.add(new Table(table[i]));
         }
-        myadapter = new MyArrayAdapter(Tang1.this,R.layout.activity_table, list);
+        myadapter = new MyArrayAdapter(MangVe.this,R.layout.activity_table, list);
         Grid_table.setAdapter(myadapter);
-
-
         btnHD = (Button) findViewById(R.id.btn_HoaDon);
         btnT1 = (Button) findViewById(R.id.btn_T1);
         btnT2 = (Button) findViewById(R.id.btn_T2);
         btnMV = (Button) findViewById(R.id.btn_MV);
-        //tạo sự kiện click cho các button
+
 
         btnHD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 try {
                     Intent intent = new Intent(getApplication(), MainActivity.class);
+                    startActivity(intent);
+                }
+                catch (Exception e)
+                {
+
+                }
+            }
+        });
+        btnT1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                try {
+                    Intent intent = new Intent(getApplication(), Tang1.class);
                     startActivity(intent);
                 }
                 catch (Exception e)
@@ -57,21 +68,9 @@ public class Tang1 extends AppCompatActivity {
         btnT2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 try {
                     Intent intent = new Intent(getApplication(), Tang2.class);
-                    startActivity(intent);
-                }
-                catch (Exception e)
-                {
-
-                }
-            }
-        });
-        btnMV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    Intent intent = new Intent(getApplication(), MangVe.class);
                     startActivity(intent);
                 }
                 catch (Exception e)
@@ -95,6 +94,5 @@ public class Tang1 extends AppCompatActivity {
                 }
             }
         });
-
     }
 }

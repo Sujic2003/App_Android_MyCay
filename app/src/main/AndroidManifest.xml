@@ -10,8 +10,18 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.My_cay_Uname"
+        android:theme="@style/AppTheme"
         tools:targetApi="31">
+        <activity
+            android:name=".Menu"
+            android:exported="false"
+            android:label="@string/title_activity_menu" />
+        <activity
+            android:name=".MangVe"
+            android:exported="false" />
+        <activity
+            android:name=".Tang2"
+            android:exported="false" />
         <activity
             android:name=".Tang1"
             android:exported="false" />
