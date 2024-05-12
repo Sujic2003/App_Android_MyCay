@@ -18,4 +18,90 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:background="#00ADB5"
+        android:text="Thanh toán"
+        android:textColor="#ffffff"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <TextView
+        android:id="@+id/HienThi"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="#00ADB5"
+        android:gravity="left|center"
+        android:text="  0 |   Tổng tiền"
+        android:textColor="@color/button_text_change"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <ListView
+        android:id="@+id/listview_loai"
+        android:layout_width="89dp"
+        android:layout_height="585dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:layout_width="316dp"
+        android:layout_height="585dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/listview_loai">
+
+        <TextView
+            android:id="@+id/MyCay"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:text="Mỳ cay"
+            android:background="#ECE9E9"
+            android:textSize="20dp"
+            android:gravity="left|center"/>
+
+        <GridView
+            android:id="@+id/gridvew_Mycay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numColumns="3"/>
+
+        <TextView
+            android:id="@+id/MonAnThem"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:text="Món ăn thêm"
+            android:background="#ECE9E9"
+            android:textSize="20dp"
+            android:gravity="left|center"/>
+        <GridView
+            android:id="@+id/gridvew_monanthem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numColumns="3"/>
+        <TextView
+            android:id="@+id/nuocuong"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:text="Nước uống"
+            android:background="#ECE9E9"
+            android:textSize="20dp"
+            android:gravity="left|center"/>
+        <GridView
+            android:id="@+id/gridvew_nuocuong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numColumns="3"/>
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
