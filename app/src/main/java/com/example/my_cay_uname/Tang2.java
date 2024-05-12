@@ -1,7 +1,6 @@
 package com.example.my_cay_uname;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -40,7 +39,7 @@ public class Tang2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    Intent intent = new Intent(getApplication(), MainActivity.class);
+                    Intent intent = new Intent(getApplication(), HoaDon.class);
                     startActivity(intent);
                 }
                 catch (Exception e)

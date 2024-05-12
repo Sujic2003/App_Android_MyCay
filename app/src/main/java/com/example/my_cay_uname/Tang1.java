@@ -1,16 +1,13 @@
 package com.example.my_cay_uname;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.ListView;
 
 import java.util.ArrayList;
 
@@ -45,7 +42,7 @@ public class Tang1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    Intent intent = new Intent(getApplication(), MainActivity.class);
+                    Intent intent = new Intent(getApplication(), HoaDon.class);
                     startActivity(intent);
                 }
                 catch (Exception e)
