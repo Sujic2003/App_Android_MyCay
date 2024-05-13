@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -24,7 +26,7 @@ public class HoaDon extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_hoadon);
 
         gridView_hoadon = (GridView) findViewById(R.id.gridView_HoaDon);
         hoaDonDAO = new HoaDonDAO(this);
@@ -94,6 +96,18 @@ public class HoaDon extends AppCompatActivity {
                 catch (Exception e)
                 {
 
+                }
+
+            }
+        });
+        gridView_hoadon.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                try {
+
+                }
+                catch (Exception e){
+                    Toast.makeText(getApplicationContext(), "Không thể thực hiện!!!", Toast.LENGTH_SHORT).show();
                 }
 
             }

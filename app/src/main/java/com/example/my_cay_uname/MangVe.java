@@ -10,26 +10,33 @@ import android.widget.Button;
 import android.widget.GridView;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import DAO.BanDAO;
+import DTO.BanDTO;
 
 public class MangVe extends AppCompatActivity {
-    String table[]= {"MV01","MV02","MV03","MV04","MV05","MV06","MV07","MV08","MV09","MV10",};
-    ArrayList<Table> list;
-    MyArrayAdapter myadapter;
-    GridView Grid_table;
     Button btnHD, btnT1, btnT2, btnMV;
+    Adapter_Table myadapter;
+    GridView Grid_table;
+    BanDAO banDAO ;
+    List<BanDTO> tables;
+
     boolean isColorChanged = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mangve);
         Grid_table = (GridView) findViewById(R.id.gridView_table);
-        list = new ArrayList<>();//Tạo mới mảng
-        for(int i = 0; i< table.length; i++)
-        {
-            list.add(new Table(table[i]));
-        }
-        myadapter = new MyArrayAdapter(MangVe.this,R.layout.activity_table, list);
+        // Khởi tạo
+        banDAO = new BanDAO(this);
+        // Lấy danh sách bàn
+        tables = banDAO.getAll_Table();
+        myadapter = new Adapter_Table(MangVe.this,R.layout.layout_item_table, tables);
         Grid_table.setAdapter(myadapter);
+        myadapter.notifyDataSetChanged();
+
+
         btnHD = (Button) findViewById(R.id.btn_HoaDon);
         btnT1 = (Button) findViewById(R.id.btn_T1);
         btnT2 = (Button) findViewById(R.id.btn_T2);
@@ -82,7 +89,7 @@ public class MangVe extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 try{
-                    String selectedTable = table[position];
+                    String selectedTable = String.valueOf(tables.get(position));
                     Intent intent = new Intent(getApplication(), Menu.class);
                     intent.putExtra("selectedTable", selectedTable);
                     startActivity(intent);
