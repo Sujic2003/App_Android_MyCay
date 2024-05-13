@@ -10,26 +10,30 @@ import android.widget.Button;
 import android.widget.GridView;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import DAO.BanDAO;
+import DTO.BanDTO;
 
 public class Tang1 extends AppCompatActivity {
-    String table[]= {"A01","A02","A03","A04","A05","A06","A07","A08","A09","A10",};
-    ArrayList<Table> list;
-    MyArrayAdapter myadapter;
-    GridView Grid_table;
     Button btnHD, btnT1, btnT2, btnMV;
+    Adapter_Table myadapter;
+    GridView Grid_table;
+    BanDAO banDAO ;
+    List<BanDTO> tables;
     boolean isColorChanged = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tang1);
         Grid_table = (GridView) findViewById(R.id.gridView_table);
-        list = new ArrayList<>();//Tạo mới mảng
-        for(int i = 0; i< table.length; i++)
-        {
-            list.add(new Table(table[i]));
-        }
-        myadapter = new MyArrayAdapter(Tang1.this,R.layout.activity_table, list);
+        // Khởi tạo
+        banDAO = new BanDAO(this);
+        // Lấy danh sách bàn
+        tables = banDAO.getAll_Table();
+        myadapter = new Adapter_Table(Tang1.this,R.layout.layout_item_table, tables);
         Grid_table.setAdapter(myadapter);
+        myadapter.notifyDataSetChanged();
 
 
         btnHD = (Button) findViewById(R.id.btn_HoaDon);
@@ -81,7 +85,7 @@ public class Tang1 extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 try{
-                    String selectedTable = table[position];
+                    String selectedTable = String.valueOf(tables.get(position));
                     Intent intent = new Intent(getApplication(), Menu.class);
                     intent.putExtra("selectedTable", selectedTable);
                     startActivity(intent);

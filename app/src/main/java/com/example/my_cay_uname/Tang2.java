@@ -10,26 +10,32 @@ import android.widget.Button;
 import android.widget.GridView;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import DAO.BanDAO;
+import DTO.BanDTO;
 
 public class Tang2 extends AppCompatActivity {
-    String table[]= {"B01","B02","B03","B04","B05","B06","B07","B08","B09","B10",};
-    ArrayList<Table> list;
-    MyArrayAdapter myadapter;
-    GridView Grid_table;
     Button btnHD, btnT1, btnT2, btnMV;
+    Adapter_Table myadapter;
+    GridView Grid_table;
+    BanDAO banDAO ;
+    List<BanDTO> tables;
+
     boolean isColorChanged = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tang2);
         Grid_table = (GridView) findViewById(R.id.gridView_table);
-        list = new ArrayList<>();//Tạo mới mảng
-        for(int i = 0; i< table.length; i++)
-        {
-            list.add(new Table(table[i]));
-        }
-        myadapter = new MyArrayAdapter(Tang2.this,R.layout.activity_table, list);
+        // Khởi tạo
+        banDAO = new BanDAO(this);
+        // Lấy danh sách bàn
+        tables = banDAO.getAll_Table();
+        myadapter = new Adapter_Table(Tang2.this,R.layout.layout_item_table, tables);
         Grid_table.setAdapter(myadapter);
+        myadapter.notifyDataSetChanged();
+
         btnHD = (Button) findViewById(R.id.btn_HoaDon);
         btnT1 = (Button) findViewById(R.id.btn_T1);
         btnT2 = (Button) findViewById(R.id.btn_T2);
@@ -78,7 +84,7 @@ public class Tang2 extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 try{
-                    String selectedTable = table[position];
+                    String selectedTable = String.valueOf(tables.get(position));
                     Intent intent = new Intent(getApplication(), Menu.class);
                     intent.putExtra("selectedTable", selectedTable);
                     startActivity(intent);

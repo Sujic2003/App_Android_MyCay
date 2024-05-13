@@ -46,20 +46,20 @@ public class Adapter_HoaDon extends BaseAdapter {
         TextView txtMa, txtTien, txtNgay;
     }
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View view = convertView;
-        // Nếu view đang hiên thị bằng null thì khởi tạo
-        if(view==null) {
-            // Tạo layout chứa
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-            viewHolder = new ViewHolderHoaDon();
-            // Có layout custom
-            view = inflater.inflate(R.layout.layout_item_hoadon,parent, false);
-            viewHolder.txtMa = (TextView) view.findViewById(R.id.txtmahoadon);
-            viewHolder.txtTien = (TextView) view.findViewById(R.id.txttongtien);
-            viewHolder.txtNgay = (TextView) view.findViewById(R.id.txtngaytao);
-            //Lưu giá trị
-            view.setTag(viewHolder);
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View view = convertView;
+            // Nếu view đang hiên thị bằng null thì khởi tạo
+            if(view==null) {
+                // Tạo layout chứa
+                LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+                viewHolder = new ViewHolderHoaDon();
+                // Có layout custom
+                view = inflater.inflate(R.layout.layout_item_hoadon,parent, false);
+                viewHolder.txtMa = (TextView) view.findViewById(R.id.txtmahoadon);
+                viewHolder.txtTien = (TextView) view.findViewById(R.id.txttongtien);
+                viewHolder.txtNgay = (TextView) view.findViewById(R.id.txtngaytao);
+                //Lưu giá trị
+                view.setTag(viewHolder);
         } else {
             //Gán giá trị
             viewHolder =(ViewHolderHoaDon) view.getTag();
