@@ -13,6 +13,9 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".Login"
+            android:exported="false" />
+        <activity
             android:name=".Loai_MonAn"
             android:exported="false"
             android:label="@string/title_activity_loai_mon_an"
