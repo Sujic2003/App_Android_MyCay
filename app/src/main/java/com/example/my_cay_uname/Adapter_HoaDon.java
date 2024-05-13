@@ -10,15 +10,14 @@ import android.widget.TextView;
 import java.util.List;
 
 import DTO.HoaDonDTO;
-import DTO.NhanVienDTO;
 
-public class HoaDonAdapter extends BaseAdapter {
+public class Adapter_HoaDon extends BaseAdapter {
     List<HoaDonDTO> hoaDonDTOList;
     int layout;
     Context context;
     ViewHolderHoaDon viewHolder;
 
-    public HoaDonAdapter (Context context, int layout,List<HoaDonDTO> hoaDonDTOList) {
+    public Adapter_HoaDon(Context context, int layout, List<HoaDonDTO> hoaDonDTOList) {
         this.context = context;
         this.layout = layout;
         this.hoaDonDTOList = hoaDonDTOList;

@@ -16,7 +16,7 @@ import DTO.HoaDonDTO;
 public class HoaDon extends AppCompatActivity {
     Button btnHD, btnT1, btnT2,btnMV;
     GridView gridView_hoadon;
-    HoaDonAdapter adapter;
+    Adapter_HoaDon adapter;
     HoaDonDAO hoaDonDAO;
     List<HoaDonDTO> bills;
 
@@ -30,7 +30,7 @@ public class HoaDon extends AppCompatActivity {
         hoaDonDAO = new HoaDonDAO(this);
         // Lấy danh sách hoá đơn
         bills = hoaDonDAO.LayTatCaHoaDon();
-        adapter = new HoaDonAdapter(this, R.layout.layout_item_hoadon,bills);
+        adapter = new Adapter_HoaDon(this, R.layout.layout_item_hoadon,bills);
         gridView_hoadon.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 

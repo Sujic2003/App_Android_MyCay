@@ -55,14 +55,14 @@
 
                 <Button
                     android:id="@+id/btn_MV"
-                    app:backgroundTint="@null"
                     android:layout_width="134dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="20dp"
-                    android:background="@color/button_background_change"
+                    android:background="@color/custom_seconds"
                     android:text="Mang về"
-                    android:textColor="@color/button_text_change" />
+                    android:textColor="@color/button_text_change"
+                    app:backgroundTint="@null" />
             </LinearLayout>
         </HorizontalScrollView>
 
