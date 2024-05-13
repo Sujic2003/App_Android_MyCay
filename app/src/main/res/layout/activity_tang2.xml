@@ -100,8 +100,6 @@
             android:numColumns="3"
             android:layout_marginTop="8dp"
             android:background="@color/custom_backgroudGrid"
-            android:verticalSpacing="40dp"
-            android:horizontalSpacing="20dp"
             />
 
     </LinearLayout>
