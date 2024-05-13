@@ -5,4 +5,14 @@
     <color name="button_background_change">#2DBF28</color>
     <color name="button_text_change">#FFFFFF</color>
     <color name="gray">#DADADA</color>
+    <color name="custom_primary">#00fff5</color>
+    <color name="custom_seconds">#00adb5</color>
+    <color name="custom_gray">#393e46</color>
+    <color name="custom_black">#222831</color>
+    <color name="custom_redF">#ff0000</color>
+    <color name="custom_redSC">#950101</color>
+    <color name="custom_milk">#eee</color>
+    <color name="custom_orange">#fd7014</color>
+
+
 </resources>
