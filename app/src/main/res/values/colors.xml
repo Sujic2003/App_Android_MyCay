@@ -13,6 +13,9 @@
     <color name="custom_redSC">#950101</color>
     <color name="custom_milk">#eee</color>
     <color name="custom_orange">#fd7014</color>
+    <color name="custom_purple">#5b67f1</color>
+    <color name="custom_backgroudGrid">#c2f8ff</color>
+
 
 
 </resources>

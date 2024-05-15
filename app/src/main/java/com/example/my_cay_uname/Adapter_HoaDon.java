@@ -10,15 +10,14 @@ import android.widget.TextView;
 import java.util.List;
 
 import DTO.HoaDonDTO;
-import DTO.NhanVienDTO;
 
-public class HoaDonAdapter extends BaseAdapter {
+public class Adapter_HoaDon extends BaseAdapter {
     List<HoaDonDTO> hoaDonDTOList;
     int layout;
     Context context;
     ViewHolderHoaDon viewHolder;
 
-    public HoaDonAdapter (Context context, int layout,List<HoaDonDTO> hoaDonDTOList) {
+    public Adapter_HoaDon(Context context, int layout, List<HoaDonDTO> hoaDonDTOList) {
         this.context = context;
         this.layout = layout;
         this.hoaDonDTOList = hoaDonDTOList;
@@ -47,20 +46,20 @@ public class HoaDonAdapter extends BaseAdapter {
         TextView txtMa, txtTien, txtNgay;
     }
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View view = convertView;
-        // Nếu view đang hiên thị bằng null thì khởi tạo
-        if(view==null) {
-            // Tạo layout chứa
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-            viewHolder = new ViewHolderHoaDon();
-            // Có layout custom
-            view = inflater.inflate(R.layout.layout_item_hoadon,parent, false);
-            viewHolder.txtMa = (TextView) view.findViewById(R.id.txtmahoadon);
-            viewHolder.txtTien = (TextView) view.findViewById(R.id.txttongtien);
-            viewHolder.txtNgay = (TextView) view.findViewById(R.id.txtngaytao);
-            //Lưu giá trị
-            view.setTag(viewHolder);
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View view = convertView;
+            // Nếu view đang hiên thị bằng null thì khởi tạo
+            if(view==null) {
+                // Tạo layout chứa
+                LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+                viewHolder = new ViewHolderHoaDon();
+                // Có layout custom
+                view = inflater.inflate(R.layout.layout_item_hoadon,parent, false);
+                viewHolder.txtMa = (TextView) view.findViewById(R.id.txtmahoadon);
+                viewHolder.txtTien = (TextView) view.findViewById(R.id.txttongtien);
+                viewHolder.txtNgay = (TextView) view.findViewById(R.id.txtngaytao);
+                //Lưu giá trị
+                view.setTag(viewHolder);
         } else {
             //Gán giá trị
             viewHolder =(ViewHolderHoaDon) view.getTag();
