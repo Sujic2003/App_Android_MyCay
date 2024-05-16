@@ -6,18 +6,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.transition.Slide;
 
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
 
+import com.example.my_cay_uname.fragment.Fragment_MonAn;
 import com.google.android.material.navigation.NavigationView;
 
 public class TrangChu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout mDrawelayout;
-
+    // Khai báo fragment
+    FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +46,15 @@ public class TrangChu extends AppCompatActivity implements NavigationView.OnNavi
         int id = item.getItemId();
         if(id == R.id.nav_nhanvien )
         {
-
+            // Tạo fragment mới thay thế fragment cũ
+            FragmentTransaction tran_HienThiMonAn = fragmentManager.beginTransaction();
+            // Khai baó đối tượng hiển thị
+            Fragment_MonAn fragmentMonAn = new Fragment_MonAn();
+            tran_HienThiMonAn.replace(R.id.content_frame, fragmentMonAn);
+            tran_HienThiMonAn.commit();
+            //Đóng draw khi hiển thị fragment
+            item.setChecked(true);
+            mDrawelayout.closeDrawers();
         }
         else if(id == R.id.nav_monan) {
 
