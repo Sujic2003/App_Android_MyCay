@@ -28,10 +28,20 @@ public class Fragment_MonAn extends Fragment {
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
+        MenuItem itemThemBanAn = menu.add(1,R.id.item_ThemMonAn, 1,"Thêm Món Ăn");
+        itemThemBanAn.setIcon(R.drawable.baseline_add_circle_24);
+        itemThemBanAn.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
     }
 
     @Override
+    //Sự kiện clicl vào item
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.:
+                break;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 }

@@ -1,26 +1,24 @@
 package com.example.my_cay_uname.Adapter;
 
 import android.content.Context;
-import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.TextView;
-
-import com.example.my_cay_uname.NhanVien;
 import com.example.my_cay_uname.R;
+import java.util.List;
+import DTO.NhanVienDTO;
 
-import java.util.ArrayList;
-import java.util.zip.Inflater;
 
 public class Adapter_NhanVien extends BaseAdapter {
     Context context;
-    ArrayList<NhanVien> list;
+    int layout;
+    List<NhanVienDTO> list;
 
-    public Adapter_NhanVien(Context context, ArrayList<NhanVien> list) {
+    public Adapter_NhanVien(Context context, int layout, List<NhanVienDTO> list) {
         this.context = context;
+        this.layout = layout;
         this.list = list;
     }
 
@@ -31,12 +29,12 @@ public class Adapter_NhanVien extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return list.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return list.get(position).getMANV();
     }
 
     @Override
@@ -48,14 +46,11 @@ public class Adapter_NhanVien extends BaseAdapter {
         TextView ten = (TextView) row.findViewById(R.id.name);
         TextView gioitinh = (TextView) row.findViewById(R.id.sex);
         TextView ngaysinh = (TextView) row.findViewById(R.id.Date);
-        Button btnxoa = (Button) row.findViewById(R.id.delete);
-        Button btnSua = (Button) row.findViewById(R.id.edit);
+        txtid.setText(String.valueOf(list.get(position).getMANV()));
+        ten.setText(list.get(position).getTENNV());
+        ngaysinh.setText(list.get(position).getNGAYSINH());
+        gioitinh.setText(list.get(position).getGIOITINH());
 
-        NhanVien nhanVien = list.get(position);
-        txtid.setText(nhanVien.id + "");
-        ten.setText(nhanVien.ten);
-        ngaysinh.setText(nhanVien.ngaysinh);
-        gioitinh.setText(nhanVien.gioitinh);
         return row;
     }
 }

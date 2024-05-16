@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <TableLayout
-        android:layout_width="276dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -96,25 +96,5 @@
         </TableRow>
 
     </TableLayout>
-
-    <Button
-        android:id="@+id/edit"
-        android:layout_width="112dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="Sửa"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/delete"
-        android:layout_width="112dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="16dp"
-        android:text="Xóa"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

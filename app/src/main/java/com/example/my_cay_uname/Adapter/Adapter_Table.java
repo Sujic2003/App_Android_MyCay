@@ -1,10 +1,12 @@
 package com.example.my_cay_uname.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.my_cay_uname.R;
@@ -45,6 +47,7 @@ public class Adapter_Table extends BaseAdapter {
 
     public class ViewHolderBan  {
         TextView txtMaBan;
+        ImageView imBan;
     }
 
     @Override
@@ -60,6 +63,7 @@ public class Adapter_Table extends BaseAdapter {
             // Lấy và hiển thi layout custom
             view = inflater.inflate(R.layout.layout_item_table, parent, false);
             viewHolderBan.txtMaBan = (TextView) view.findViewById(R.id.txtMaBan);
+            viewHolderBan.imBan = (ImageView) view.findViewById(R.id.imBan);
             // Lưu giá trị
             view.setTag(viewHolderBan);
         } else {
@@ -68,7 +72,8 @@ public class Adapter_Table extends BaseAdapter {
         }
         // Lấy từng giá trị bàn
         BanDTO banDTO = banDTOList.get(position);
-        viewHolderBan.txtMaBan.setText("BAN" + String.valueOf(banDTO.getMABAN()));
+        viewHolderBan.txtMaBan.setText(String.valueOf(banDTO.getMABAN()));
         return view;
     }
+
 }
