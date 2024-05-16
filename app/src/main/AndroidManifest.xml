@@ -7,7 +7,7 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/logo_noodle"
-        android:label="@string/app_name"
+        android:label="Mỳ Cay TiTP"
         android:roundIcon="@mipmap/logo_noodle_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"

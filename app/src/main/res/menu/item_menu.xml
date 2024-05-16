@@ -7,13 +7,10 @@
         android:title="Thêm bàn ăn" />
     <item
         android:id="@+id/item_ThemNhanVien"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:title="Thêm nhân viên" />
     <item
         android:id="@+id/item_ThemMonAn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:title="Thêm món ăn"
+
         />
 </menu>

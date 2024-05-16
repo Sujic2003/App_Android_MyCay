@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.my_cay_uname.Adapter_Table;
+import com.example.my_cay_uname.Adapter.Adapter_Table;
 import com.example.my_cay_uname.Menu;
 import com.example.my_cay_uname.R;
 import com.example.my_cay_uname.Table;
@@ -30,6 +30,7 @@ public class TrangChuFregment extends Fragment {
     FloatingActionButton floatingActionButton;
     GridView gridView;
     List<BanDTO> banDTOList;
+    Adapter_Table adapterTable;
     BanDAO banDAO;
     @SuppressLint("MissingInflatedId")
     @Nullable
@@ -40,7 +41,7 @@ public class TrangChuFregment extends Fragment {
         gridView = (GridView) view.findViewById(R.id.gv_Ban);
         banDAO = new BanDAO(getActivity());
         banDTOList = banDAO.getAll_Table();
-        Adapter_Table adapterTable = new Adapter_Table(getActivity(), R.layout.layout_item_table, banDTOList);
+        adapterTable = new Adapter_Table(getActivity(), R.layout.layout_item_table, banDTOList);
         gridView.setAdapter(adapterTable);
         adapterTable.notifyDataSetChanged();
 
