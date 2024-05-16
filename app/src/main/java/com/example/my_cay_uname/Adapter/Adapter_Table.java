@@ -1,4 +1,4 @@
-package com.example.my_cay_uname;
+package com.example.my_cay_uname.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.my_cay_uname.R;
 
 import java.util.List;
 

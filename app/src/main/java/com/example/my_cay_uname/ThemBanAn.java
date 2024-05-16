@@ -43,9 +43,15 @@ public class ThemBanAn extends AppCompatActivity {
                 {
                     boolean kt = banDAO.addBanAn(tenban);
                     Intent intent = new Intent();
-                    intent.putExtra("Them", kt);
                     setResult(Activity.RESULT_OK,intent);//Truyền inten vào setResult
+                    if (kt) {
+                        Toast.makeText(getApplication(), "Thêm bàn thành công", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+                    else {
+                    Toast.makeText(getApplication(), "Thêm bàn không thành công", Toast.LENGTH_SHORT).show();
                     finish();
+                    }
                 }
                 else
                 {

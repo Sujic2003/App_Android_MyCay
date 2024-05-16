@@ -1,6 +1,7 @@
 package com.example.my_cay_uname.fragment;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,7 +19,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
-import com.example.my_cay_uname.Adapter_Table;
+import com.example.my_cay_uname.Adapter.Adapter_Table;
 import com.example.my_cay_uname.Menu;
 import com.example.my_cay_uname.R;
 import com.example.my_cay_uname.Table;
@@ -37,8 +38,10 @@ public class TrangChuFregment extends Fragment {
     FloatingActionButton floatingActionButton;
     GridView gridView;
     List<BanDTO> banDTOList;
+    Adapter_Table adapterTable;
+    public static int Request_code_them = 1;
+
     BanDAO banDAO;
-    Adapter_Table myadapter;
     int maban;
     @SuppressLint("MissingInflatedId")
     @Nullable
@@ -49,16 +52,20 @@ public class TrangChuFregment extends Fragment {
         gridView = (GridView) view.findViewById(R.id.gv_Ban);
         banDAO = new BanDAO(getActivity());
         banDTOList = banDAO.getAll_Table();
-        myadapter = new Adapter_Table(getActivity(), R.layout.layout_item_table, banDTOList);
-        gridView.setAdapter(myadapter);
         HienThiBan();
+
+        adapterTable = new Adapter_Table(getActivity(), R.layout.layout_item_table, banDTOList);
+        gridView.setAdapter(adapterTable);
+        adapterTable.notifyDataSetChanged();
+
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String selectedTable = String.valueOf(banDTOList.get(position));
+                BanDTO selectedBan = banDTOList.get(position);
+                String selectedTableName = selectedBan.getTENBAN(); // Lấy tên bàn từ đối tượng BanDTO
                 Intent intent = new Intent(getActivity(), Menu.class);
-                intent.putExtra("selectedTable", selectedTable);
+                intent.putExtra("selectedTableName", selectedTableName);
                 startActivity(intent);
             }
         });
@@ -110,7 +117,7 @@ public class TrangChuFregment extends Fragment {
         switch (id){
             case R.id.item_ThemBan:
                 Intent intent = new Intent(getActivity(), ThemBanAn.class);
-                startActivity(intent);
+                startActivityForResult(intent, Request_code_them);
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -119,8 +126,16 @@ public class TrangChuFregment extends Fragment {
     private void HienThiBan()
     {
         banDTOList = banDAO.getAll_Table();
-        myadapter = new Adapter_Table(getActivity(), R.layout.layout_item_table, banDTOList);
-        gridView.setAdapter(myadapter);
-        myadapter.notifyDataSetChanged();
+        adapterTable = new Adapter_Table(getActivity(), R.layout.layout_item_table, banDTOList);
+        gridView.setAdapter(adapterTable);
+        adapterTable.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == Request_code_them) {
+            HienThiBan();
+        }
     }
 }

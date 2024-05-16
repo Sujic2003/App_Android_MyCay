@@ -9,12 +9,11 @@ import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.transition.Slide;
-
+import androidx.fragment.app.FragmentManager;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.MenuItem;
 
+import com.example.my_cay_uname.fragment.Fragment_MonAn;
 import com.example.my_cay_uname.fragment.NhanvienFragment;
 import com.example.my_cay_uname.fragment.TrangChuFregment;
 import com.google.android.material.navigation.NavigationView;
@@ -22,6 +21,9 @@ import com.google.android.material.navigation.NavigationView;
 public class TrangChu extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout mDrawelayout;
+
+    // Khai báo fragment
+    FragmentManager fragmentManager;
     private NavigationView navigationView;
     private Menu menu;
 
@@ -52,7 +54,9 @@ public class TrangChu extends AppCompatActivity implements NavigationView.OnNavi
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        //Lấy id của sự kiện click trên navigation
+        int id = item.getItemId();
+        switch (id){
             case R.id.nav_TrangChu:
                 getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new TrangChuFregment()).commit();
                 break;
@@ -60,12 +64,23 @@ public class TrangChu extends AppCompatActivity implements NavigationView.OnNavi
             case R.id.nav_nhanvien:
                 getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new NhanvienFragment()).commit();
                 break;
+            case R.id.nav_monan:
+                getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new Fragment_MonAn()).commit();
+                break;
         }
         mDrawelayout.closeDrawer(GravityCompat.START);
 
         return true;
     }
-
+//    // Tạo fragment mới thay thế fragment cũ
+//    FragmentTransaction tran_HienThiMonAn = fragmentManager.beginTransaction();
+//    // Khai baó đối tượng hiển thị
+//    Fragment_MonAn fragmentMonAn = new Fragment_MonAn();
+//            tran_HienThiMonAn.replace(R.id.content_frame, fragmentMonAn);
+//            tran_HienThiMonAn.commit();
+//    //Đóng draw khi hiển thị fragment
+//            item.setChecked(true);
+//            mDrawelayout.closeDrawers();
     @Override
     public void onBackPressed() {
         if(mDrawelayout.isDrawerOpen(GravityCompat.START))

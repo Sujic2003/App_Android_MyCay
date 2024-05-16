@@ -1,11 +1,11 @@
 package com.example.my_cay_uname.fragment;
 
+
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,18 +19,14 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
-
-import com.example.my_cay_uname.Adapter_NhanVien;
-import com.example.my_cay_uname.NhanVien;
+import com.example.my_cay_uname.Adapter.Adapter_NhanVien;
 import com.example.my_cay_uname.R;
 import com.example.my_cay_uname.ThemNhanVien;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.zip.Inflater;
@@ -187,7 +183,7 @@ public class NhanvienFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        MenuItem itThemNV =menu.add(1, R.id.item_ThemNhanVien,1, "Thêm nhân vin");
+        MenuItem itThemNV =menu.add(1, R.id.item_ThemNhanVien,1, "Thêm nhân viên");
         itThemNV.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
     }
 

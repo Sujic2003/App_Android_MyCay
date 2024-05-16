@@ -8,17 +8,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.lang.reflect.Type;
+import com.example.my_cay_uname.Adapter.Adapter_MonAn;
+
 import java.util.ArrayList;
 
 import DAO.BanDAO;
+import DTO.BanDTO;
 
 public class Menu extends AppCompatActivity {
     int image1[] = {R.drawable.kiemchiga,R.drawable.kimchibachtuot, R.drawable.kimchibo,R.drawable.kimchicavien,R.drawable.kimchihaisan};
@@ -37,6 +38,7 @@ public class Menu extends AppCompatActivity {
     Adapter_MonAn myadapter = null;
     ArrayAdapter<String> adapter_loai;
     BanDAO banDAO;
+    BanDTO banDTO;
 
     int soluong =0;
     int tongtien = 0;
@@ -54,7 +56,7 @@ public class Menu extends AppCompatActivity {
         Intent intent = getIntent();
         if(intent!=null)
         {
-            String selectedTable = intent.getStringExtra("selectedTable");
+            String selectedTable = intent.getStringExtra("selectedTableName");
             if(selectedTable!=null)
             {
                 getSupportActionBar().setTitle(selectedTable);

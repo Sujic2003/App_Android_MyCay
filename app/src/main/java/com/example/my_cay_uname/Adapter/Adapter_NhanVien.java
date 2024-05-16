@@ -1,4 +1,4 @@
-package com.example.my_cay_uname;
+package com.example.my_cay_uname.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,10 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-
+import com.example.my_cay_uname.R;
 import java.util.List;
-
 import DTO.NhanVienDTO;
+
 
 public class Adapter_NhanVien extends BaseAdapter {
     Context context;
