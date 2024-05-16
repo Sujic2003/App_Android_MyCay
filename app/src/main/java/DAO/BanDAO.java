@@ -32,14 +32,17 @@ public class BanDAO {
             //
             BanDTO ban = new BanDTO();
             ban.setMABAN(cs.getInt(cs.getColumnIndex(DataHelper.BAN_MABAN)));
+            ban.setTENBAN(cs.getString(cs.getColumnIndex(DataHelper.BAN_TENBAN)));
+            ban.setTINHTRANG(cs.getString(cs.getColumnIndex(DataHelper.BAN_TINHTRNAG)));
             banDTOList.add(ban);
             cs.moveToNext();
         }
         return banDTOList;
     }
-    public boolean ThemBanAn()
+    public boolean addBanAn(String tenban)
     {
         ContentValues values = new ContentValues();
+        values.put(DataHelper.BAN_TENBAN, tenban);
         values.put(DataHelper.BAN_TINHTRNAG, "Trống");
 
         long kt = db.insert(DataHelper.TB_BAN, null,values);
@@ -47,5 +50,32 @@ public class BanDAO {
             return true;
         else
             return false;
+    }
+    public boolean updateBan(BanDTO ban)
+    {
+        ContentValues values = new ContentValues();
+        values.put(DataHelper.BAN_MABAN, ban.getMABAN());
+        values.put(DataHelper.BAN_TENBAN, ban.getTENBAN());
+        values.put(DataHelper.BAN_TINHTRNAG, ban.getTINHTRANG());
+
+        int kt = db.update(DataHelper.TB_BAN, values, DataHelper.BAN_MABAN + " = ?", new String[]{String.valueOf(ban.getMABAN())});
+
+        if(kt != 0)
+        {
+            return true;
+        }
+        return false;
+    }
+    public boolean deleteBan(int maban)
+    {
+        String sTruyVan = "DELETE FROM " + DataHelper.TB_BAN + " WHERE " + DataHelper.BAN_MABAN + " = " + maban;
+
+        try {
+            db.execSQL(sTruyVan);
+            return true; // Trả về true nếu xóa thành công
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false; // Trả về false nếu xóa thất bại
+        }
     }
 }

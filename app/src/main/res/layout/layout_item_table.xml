@@ -25,9 +25,9 @@
 
         <ImageView
             android:id="@+id/imBan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/table"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/iconstable"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
@@ -36,14 +36,22 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/txtMaBan"
-            android:layout_width="51dp"
-            android:layout_height="51dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="1"
+            android:id="@+id/txtTenBan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:gravity="bottom"
+            android:text="Bàn số 1"
+            android:textStyle="bold"
             android:textColor="#000000"
             android:textSize="24dp" />
+
+        <ImageView
+            android:id="@+id/im_icon_TinhTrang"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="left"
+            app:srcCompat="@drawable/iconsaccount2" />
 
     </androidx.cardview.widget.CardView>
 

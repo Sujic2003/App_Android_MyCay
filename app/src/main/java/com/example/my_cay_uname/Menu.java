@@ -18,6 +18,8 @@ import android.widget.TextView;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+import DAO.BanDAO;
+
 public class Menu extends AppCompatActivity {
     int image1[] = {R.drawable.kiemchiga,R.drawable.kimchibachtuot, R.drawable.kimchibo,R.drawable.kimchicavien,R.drawable.kimchihaisan};
     String name1[]={"Kim chi gà","Kim bạch tuột","Kim chi bò","Kim chi cá viên","Kim chi hải sản",};
@@ -34,6 +36,7 @@ public class Menu extends AppCompatActivity {
     ArrayList<MonAn> nuocuong = new ArrayList<>();
     Adapter_MonAn myadapter = null;
     ArrayAdapter<String> adapter_loai;
+    BanDAO banDAO;
 
     int soluong =0;
     int tongtien = 0;

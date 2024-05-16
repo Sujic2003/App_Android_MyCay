@@ -44,8 +44,8 @@ public class Adapter_Table extends BaseAdapter {
     }
 
     public class ViewHolderBan  {
-        TextView txtMaBan;
-        ImageView imBan;
+        TextView txtMaBan, txtTenBan;
+        ImageView imBan, im_TinhTrang;
     }
 
     @Override
@@ -60,8 +60,9 @@ public class Adapter_Table extends BaseAdapter {
             viewHolderBan = new ViewHolderBan();
             // Lấy và hiển thi layout custom
             view = inflater.inflate(R.layout.layout_item_table, parent, false);
-            viewHolderBan.txtMaBan = (TextView) view.findViewById(R.id.txtMaBan);
+            viewHolderBan.txtTenBan = (TextView) view.findViewById(R.id.txtTenBan);
             viewHolderBan.imBan = (ImageView) view.findViewById(R.id.imBan);
+            viewHolderBan.im_TinhTrang = (ImageView) view.findViewById(R.id.im_icon_TinhTrang);
             // Lưu giá trị
             view.setTag(viewHolderBan);
         } else {
@@ -70,7 +71,14 @@ public class Adapter_Table extends BaseAdapter {
         }
         // Lấy từng giá trị bàn
         BanDTO banDTO = banDTOList.get(position);
-        viewHolderBan.txtMaBan.setText(String.valueOf(banDTO.getMABAN()));
+        viewHolderBan.txtTenBan.setText(banDTO.getTENBAN());
+
+        // Kiểm tra tình trạng của bàn để hiển thị hoặc ẩn ảnh img_TinhTrang
+        if (banDTO.getTINHTRANG().equals("Đầy")) {
+            viewHolderBan.im_TinhTrang.setVisibility(View.VISIBLE);
+        } else {
+            viewHolderBan.im_TinhTrang.setVisibility(View.INVISIBLE);
+        }
         return view;
     }
 

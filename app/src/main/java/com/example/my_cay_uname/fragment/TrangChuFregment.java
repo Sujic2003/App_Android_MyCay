@@ -1,9 +1,12 @@
 package com.example.my_cay_uname.fragment;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -12,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.example.my_cay_uname.Adapter_Table;
@@ -19,30 +23,35 @@ import com.example.my_cay_uname.Menu;
 import com.example.my_cay_uname.R;
 import com.example.my_cay_uname.Table;
 import com.example.my_cay_uname.Tang1;
+import com.example.my_cay_uname.ThemBanAn;
+import com.example.my_cay_uname.ThemNhanVien;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
 import DAO.BanDAO;
 import DTO.BanDTO;
+import DTO.NhanVienDTO;
 
 public class TrangChuFregment extends Fragment {
     FloatingActionButton floatingActionButton;
     GridView gridView;
     List<BanDTO> banDTOList;
     BanDAO banDAO;
+    Adapter_Table myadapter;
+    int maban;
     @SuppressLint("MissingInflatedId")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_trang_chu,container,false);
-
+        setHasOptionsMenu(true);
         gridView = (GridView) view.findViewById(R.id.gv_Ban);
         banDAO = new BanDAO(getActivity());
         banDTOList = banDAO.getAll_Table();
-        Adapter_Table adapterTable = new Adapter_Table(getActivity(), R.layout.layout_item_table, banDTOList);
-        gridView.setAdapter(adapterTable);
-        adapterTable.notifyDataSetChanged();
+        myadapter = new Adapter_Table(getActivity(), R.layout.layout_item_table, banDTOList);
+        gridView.setAdapter(myadapter);
+        HienThiBan();
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -53,28 +62,65 @@ public class TrangChuFregment extends Fragment {
                 startActivity(intent);
             }
         });
-        floatingActionButton = (FloatingActionButton) view.findViewById(R.id.btnTHemBan);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+        gridView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public void onClick(View v) {
-            // Tạo một bàn mới
-                BanDTO newTable = new BanDTO();
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("Xác nhận");
+                builder.setMessage("Bạn có chắc muốn xóa nhân viên?");
+                builder.setCancelable(true);
+                builder.setPositiveButton("Xóa", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        BanDTO nv = banDTOList.get(position);
+                        maban = nv.getMABAN();
+                        boolean kt = banDAO.deleteBan(maban);
+                        if(kt){
+                            HienThiBan();
+                            Toast.makeText(getActivity(), "Đã xóa nhân viên.", Toast.LENGTH_LONG).show();
 
-                // Thêm bàn mới vào cơ sở dữ liệu
-                boolean result = banDAO.ThemBanAn();
-                if (result) {
-                    // Nếu thêm thành công, cập nhật danh sách bàn và cập nhật giao diện người dùng
-                    banDTOList.clear();
-                    banDTOList.addAll(banDAO.getAll_Table());
-                    adapterTable.notifyDataSetChanged();
-                } else {
-                    // Xử lý khi thêm bàn không thành công (nếu cần)
-                    Toast.makeText(getActivity(), "Thêm không thành công", Toast.LENGTH_SHORT).show();
-
-                }
+                        }else {
+                            Toast.makeText(getActivity(), "Không thể xóa nhân viên.", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+                builder.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+                return true;
             }
         });
         return view;
 
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull android.view.Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        MenuItem itThemBan =menu.add(1, R.id.item_ThemBan,1, "Thêm bàn");
+        itThemBan.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        switch (id){
+            case R.id.item_ThemBan:
+                Intent intent = new Intent(getActivity(), ThemBanAn.class);
+                startActivity(intent);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void HienThiBan()
+    {
+        banDTOList = banDAO.getAll_Table();
+        myadapter = new Adapter_Table(getActivity(), R.layout.layout_item_table, banDTOList);
+        gridView.setAdapter(myadapter);
+        myadapter.notifyDataSetChanged();
     }
 }

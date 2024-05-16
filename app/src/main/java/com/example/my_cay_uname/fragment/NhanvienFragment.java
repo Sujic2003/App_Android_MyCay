@@ -65,7 +65,12 @@ public class NhanvienFragment extends Fragment {
         btnLuu =  (Button) view.findViewById(R.id.btn_Luu);
         btnHuy = (Button) view.findViewById(R.id.btn_Huy);
         btnChon = (Button) view.findViewById(R.id.btn_ChonNS);
+
         nvDAO = new NhanVienDAO(getActivity());
+        if (nvDAO == null) {
+            Toast.makeText(getActivity(), "Không thể khởi tạo NhanVienDAO.", Toast.LENGTH_LONG).show();
+            return view;
+        }
         HienThiNhanVien();
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -81,6 +86,7 @@ public class NhanvienFragment extends Fragment {
                 else {
                     rdNu.setChecked(true);
                 }
+                manv = nv.getMANV();
             }
         });
 
@@ -137,8 +143,6 @@ public class NhanvienFragment extends Fragment {
                     nv.setTENNV(Ten);
                     nv.setNGAYSINH(NgaySinh);
                     nv.setGIOITINH(GioiTinh);
-
-
                     boolean kt = nvDAO.updateNhanVien(nv);
                     if(kt){
                         HienThiNhanVien();
@@ -176,6 +180,7 @@ public class NhanvienFragment extends Fragment {
                 datePickerDialog.show();
             }
         });
+
         return view;
     }
 
@@ -199,9 +204,15 @@ public class NhanvienFragment extends Fragment {
     }
 
     public void HienThiNhanVien() {
+        if (nvDAO != null) {
         list_nv = nvDAO.getNhanVien();
         myadapter = new Adapter_NhanVien(getActivity(), R.layout.layout_listview_nhanvien, list_nv);
         listView.setAdapter(myadapter);
         myadapter.notifyDataSetChanged();
+        } else {
+            if (getActivity() != null) {
+                Toast.makeText(getActivity(), "Không thể hiển thị nhân viên.", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 }

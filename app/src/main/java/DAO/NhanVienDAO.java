@@ -81,8 +81,8 @@ public class NhanVienDAO {
     public  boolean updateNhanVien(NhanVienDTO nv){
         ContentValues values = new ContentValues();
         values.put(DataHelper.NV_TENNV, nv.getTENNV());
-        values.put(DataHelper.NV_TENNV, nv.getTENNV());
         values.put(DataHelper.NV_NGAYSINH, nv.getNGAYSINH());
+        values.put(DataHelper.NV_GIOITINH, nv.getGIOITINH());
         long kt = db.update(DataHelper.TB_NHANVIEN, values, DataHelper.NV_MANV+"=?", new String[]{String.valueOf((nv.getMANV()))});
         if(kt==-1)
         {

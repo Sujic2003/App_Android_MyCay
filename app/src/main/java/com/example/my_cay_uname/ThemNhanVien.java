@@ -44,11 +44,19 @@ public class ThemNhanVien extends AppCompatActivity {
         btnChon = (Button) findViewById(R.id.btn_themChonNS);
         btnThem = (Button) findViewById(R.id.btn_themThemNV);
         btnHuy = (Button) findViewById(R.id.btn_themHuy);
+
+        // Khởi tạo NhanVienDAO
         nvDAO = new NhanVienDAO(this);
+        if (nvDAO == null) {
+            Toast.makeText(this, "Không thể khởi tạo NhanVienDAO.", Toast.LENGTH_LONG).show();
+            finish();
+            return;
+        }
 
         btnThem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                nvDAO = new NhanVienDAO(ThemNhanVien.this);
                 String Ten = edtten.getText().toString();
                 String NgaySinh = edtNgaysinh.getText().toString();
                 String TenDN = edtTenDN.getText().toString();
@@ -71,6 +79,7 @@ public class ThemNhanVien extends AppCompatActivity {
                     nv.setGIOITINH(GioiTinh);
                     nv.setTENDN(TenDN);
                     nv.setMATKHAU(MK);
+
                     boolean kt = nvDAO.addNhanVIen(nv);
                     if(kt){
                         Toast.makeText(getApplication(), "Thêm nhân viên thành công.", Toast.LENGTH_SHORT).show();

@@ -20,7 +20,7 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/custom_primary"
+                android:background="@color/custom_orange"
                 app:popupTheme="@style/Theme.AppCompat.Light"/>
         </com.google.android.material.appbar.AppBarLayout>
         <FrameLayout

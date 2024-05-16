@@ -5,49 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <RelativeLayout
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="Danh sách bàn"
+        android:textSize="20dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="Danh sách bàn"
-            android:textSize="20dp" />
-
-        <GridView
-            android:id="@+id/gv_Ban"
-            android:layout_width="match_parent"
-            android:layout_height="638dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="2dp"
-            android:layout_marginBottom="52dp"
-            android:numColumns="3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+    <GridView
+        android:id="@+id/gv_Ban"
+        android:layout_width="match_parent"
+        android:layout_height="638dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="52dp"
+        android:numColumns="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
 
-        </GridView>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btnTHemBan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="341dp"
-            android:layout_marginLeft="340dp"
-            android:layout_marginTop="610dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="65dp"
-            android:clickable="true"
-            app:srcCompat="@drawable/baseline_add_circle_24" />
-    </RelativeLayout>
-
+    </GridView>
 </FrameLayout>
