@@ -1,5 +1,6 @@
 package DAO;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,31 +12,40 @@ import DTO.BanDTO;
 import Database.DataHelper;
 
 public class BanDAO {
-    private static SQLiteDatabase db; //Tạo biến thực hiện trên CSDL
-    private DataHelper dbHelper;// Tạo và hỗ trợ cập nhật dữ liệu qua CSDL
-    private Context context; //Lưu trữ và truy cập ngữ cảnh ứng dụng
+    SQLiteDatabase db; //Tạo biến thực hiện trên CSDL
+    DataHelper dbHelper;// Tạo và hỗ trợ cập nhật dữ liệu qua CSDL
+    Context context; //Lưu trữ và truy cập ngữ cảnh ứng dụng
 
     public BanDAO(Context context) {
-        this.context = context;
         dbHelper = new DataHelper(context);
         db = dbHelper.getWritableDatabase(); // hoặc dbHelper.getReadableDatabase();
     }
 
     public List<BanDTO> getAll_Table(){
-        List<BanDTO> banDTOList = new ArrayList<>();//Tạo danh sách rỗng
+        List<BanDTO> banDTOList = new ArrayList<BanDTO>();//Tạo danh sách rỗng
+        //Truy vấn
+        String truyvan = "SELECT * FROM " + DataHelper.TB_BAN;
         //Khởi tạo con trỏ
-        Cursor cs =db.rawQuery("SELECT * FROM " + DataHelper.TB_BAN , null);
+        Cursor cs =db.rawQuery(truyvan , null);
         cs.moveToFirst();
         while (!cs.isAfterLast()){
             //
             BanDTO ban = new BanDTO();
-            ban.setMABAN(cs.getInt(0));
-            ban.setTINHTRANG(cs.getString(1));
+            ban.setMABAN(cs.getInt(cs.getColumnIndex(DataHelper.BAN_MABAN)));
             banDTOList.add(ban);
             cs.moveToNext();
         }
-        cs.close();
-        dbHelper.close();
         return banDTOList;
+    }
+    public boolean ThemBanAn()
+    {
+        ContentValues values = new ContentValues();
+        values.put(DataHelper.BAN_TINHTRNAG, "Trống");
+
+        long kt = db.insert(DataHelper.TB_BAN, null,values);
+        if (kt != 0)
+            return true;
+        else
+            return false;
     }
 }
