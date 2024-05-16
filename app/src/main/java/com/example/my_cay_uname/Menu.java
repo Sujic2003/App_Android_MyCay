@@ -8,14 +8,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.lang.reflect.Type;
+import com.example.my_cay_uname.Adapter.Adapter_MonAn;
+
 import java.util.ArrayList;
 
 public class Menu extends AppCompatActivity {

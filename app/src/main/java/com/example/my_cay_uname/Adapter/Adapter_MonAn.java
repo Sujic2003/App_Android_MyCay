@@ -1,4 +1,4 @@
-package com.example.my_cay_uname;
+package com.example.my_cay_uname.Adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,6 +11,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.example.my_cay_uname.MonAn;
+import com.example.my_cay_uname.R;
 
 import org.w3c.dom.Text;
 

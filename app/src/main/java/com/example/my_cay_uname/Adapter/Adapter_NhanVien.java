@@ -1,4 +1,4 @@
-package com.example.my_cay_uname;
+package com.example.my_cay_uname.Adapter;
 
 import android.content.Context;
 import android.view.InflateException;
@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.my_cay_uname.NhanVien;
+import com.example.my_cay_uname.R;
 
 import java.util.ArrayList;
 import java.util.zip.Inflater;

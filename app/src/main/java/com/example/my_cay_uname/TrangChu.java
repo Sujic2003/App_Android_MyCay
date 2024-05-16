@@ -18,6 +18,7 @@ public class TrangChu extends AppCompatActivity implements NavigationView.OnNavi
 
     private DrawerLayout mDrawelayout;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +38,7 @@ public class TrangChu extends AppCompatActivity implements NavigationView.OnNavi
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        //Lấy id của sự kiện click trên navigation
         int id = item.getItemId();
         if(id == R.id.nav_nhanvien )
         {
