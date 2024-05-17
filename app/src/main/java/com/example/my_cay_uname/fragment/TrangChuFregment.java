@@ -74,7 +74,7 @@ public class TrangChuFregment extends Fragment {
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 builder.setTitle("Xác nhận");
-                builder.setMessage("Bạn có chắc muốn xóa nhân viên?");
+                builder.setMessage("Bạn có chắc muốn xóa bàn?");
                 builder.setCancelable(true);
                 builder.setPositiveButton("Xóa", new DialogInterface.OnClickListener() {
                     @Override
@@ -84,10 +84,10 @@ public class TrangChuFregment extends Fragment {
                         boolean kt = banDAO.deleteBan(maban);
                         if(kt){
                             HienThiBan();
-                            Toast.makeText(getActivity(), "Đã xóa nhân viên.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getActivity(), "Đã xóa bàn.", Toast.LENGTH_LONG).show();
 
                         }else {
-                            Toast.makeText(getActivity(), "Không thể xóa nhân viên.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getActivity(), "Không thể xóa bàn.", Toast.LENGTH_LONG).show();
                         }
                     }
                 });

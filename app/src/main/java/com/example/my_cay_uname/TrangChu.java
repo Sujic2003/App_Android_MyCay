@@ -10,9 +10,12 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.my_cay_uname.fragment.DoiMatKhauFragment;
 import com.example.my_cay_uname.fragment.Fragment_MonAn;
 import com.example.my_cay_uname.fragment.NhanvienFragment;
 import com.example.my_cay_uname.fragment.TrangChuFregment;
@@ -26,14 +29,20 @@ public class TrangChu extends AppCompatActivity implements NavigationView.OnNavi
     FragmentManager fragmentManager;
     private NavigationView navigationView;
     private Menu menu;
+    private String sTendn="";
 
+    public String getsTendn() {
+        return sTendn;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trang_chu);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        Intent intent = getIntent();
+        String tendn = intent.getStringExtra("TenDN");
+        sTendn = tendn;
         mDrawelayout = findViewById(R.id.drawer_layout);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawelayout, toolbar,
@@ -67,20 +76,14 @@ public class TrangChu extends AppCompatActivity implements NavigationView.OnNavi
             case R.id.nav_monan:
                 getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new Fragment_MonAn()).commit();
                 break;
+            case R.id.nav_doimatkhau:
+                getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new DoiMatKhauFragment()).commit();
+                break;
         }
         mDrawelayout.closeDrawer(GravityCompat.START);
 
         return true;
     }
-//    // Tạo fragment mới thay thế fragment cũ
-//    FragmentTransaction tran_HienThiMonAn = fragmentManager.beginTransaction();
-//    // Khai baó đối tượng hiển thị
-//    Fragment_MonAn fragmentMonAn = new Fragment_MonAn();
-//            tran_HienThiMonAn.replace(R.id.content_frame, fragmentMonAn);
-//            tran_HienThiMonAn.commit();
-//    //Đóng draw khi hiển thị fragment
-//            item.setChecked(true);
-//            mDrawelayout.closeDrawers();
     @Override
     public void onBackPressed() {
         if(mDrawelayout.isDrawerOpen(GravityCompat.START))

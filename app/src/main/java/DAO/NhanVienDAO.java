@@ -100,5 +100,26 @@ public class NhanVienDAO {
         else
             return true;
     }
+    public boolean KiemTraDN(String tendn, String mk)
+    {
+        String sTruyVan = "SELECT * FROM " + DataHelper.TB_NHANVIEN
+                + " WHERE " + DataHelper.NV_TENDN + " = '" + tendn
+                + "' AND " + DataHelper.NV_MATKHAU + " = '" + mk + "'";
+
+        Cursor c = db.rawQuery(sTruyVan, null);
+        if (c.getCount() != 0)
+            return true;
+        else
+            return false;
+    }
+    public boolean updateMatKhau(String tendn, String mk){
+        ContentValues values = new ContentValues();
+        values.put(DataHelper.NV_MATKHAU, mk);
+        long kt = db.update(DataHelper.TB_NHANVIEN, values,DataHelper.NV_TENDN+"=?", new String[]{String.valueOf(tendn)});
+        if(kt==-1)
+            return false;
+        else
+            return true;
+    }
 
 }
