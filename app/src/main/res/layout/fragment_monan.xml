@@ -107,7 +107,7 @@
                 android:background="@drawable/layout_background_radius"
                 android:hint="Giá tiền"
                 android:textSize="18dp"
-
+                android:inputType="number"
                 />
             <Spinner
                 android:id="@+id/TT_spnLoaiMA"

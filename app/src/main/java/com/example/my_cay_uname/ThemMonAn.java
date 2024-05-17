@@ -11,15 +11,19 @@ import android.widget.Spinner;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.my_cay_uname.Adapter.Adapter_LoaiMonAn;
 import com.example.my_cay_uname.fragment.Fragment_MonAn;
 
+import java.util.List;
+
+import DAO.LoaiMonAnDAO;
 import DAO.MonAnDAO;
+import DTO.LoaiMonAnDTO;
 
 public class ThemMonAn extends AppCompatActivity {
     public static int Request_code_themloaitd = 112;
     public static int Request_code_themhinh = 113;
     String DuongDanHinh;
-
     EditText editTen, editGia;
     Button btnThem, btnThoat;
     ImageView imgMonAn;
@@ -27,11 +31,15 @@ public class ThemMonAn extends AppCompatActivity {
     Spinner spnLoai;
     Fragment_MonAn fragmentMonAn;
     MonAnDAO monAnDAO;
+    LoaiMonAnDAO loaiMonAnDAO;
+    // Danh sach loai mon an
+    List<LoaiMonAnDTO> list_loaimon;
+    Adapter_LoaiMonAn adtLoaiMon;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_themmonan);
+        setContentView(R.layout.activity_themmonan);
         imgMonAn = (ImageView) findViewById(R.id.anhMA);
         editTen = (EditText) findViewById(R.id.TenMA);
         editGia = (EditText) findViewById(R.id.GiaTienMA);
@@ -40,7 +48,8 @@ public class ThemMonAn extends AppCompatActivity {
         btnThem = (Button) findViewById(R.id.btnThemMA);
         btnThoat = (Button) findViewById(R.id.btnThoatMA);
 
-        //
+        //Hiển thị loại món ăn
+        HienThiLoaiMonAn();
         monAnDAO = new MonAnDAO(this);
         btnThem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +57,13 @@ public class ThemMonAn extends AppCompatActivity {
 
             }
         });
+
+    }
+    private void HienThiLoaiMonAn() {
+        list_loaimon = loaiMonAnDAO.LayDanhSachLoaiMonAn();
+        adtLoaiMon = new Adapter_LoaiMonAn(ThemMonAn.this, R.layout.spiner_loaithucdon, list_loaimon);
+        spnLoai.setAdapter(adtLoaiMon);
+        adtLoaiMon.notifyDataSetChanged();
 
     }
 

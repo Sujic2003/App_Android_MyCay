@@ -55,11 +55,16 @@
             android:exported="false" />
         <activity
             android:name=".HoaDon"
-            android:exported="false"></activity>
+            android:exported="false"/>
         
-        <activity android:name=".ThemMonAn"
-                android:theme="@style/PopUpActivity"
-            ></activity>
+        <activity
+            android:name=".ThemMonAn"
+            android:exported="false"
+            />
+        <activity
+            android:name=".ThemLoaiMonAn"
+            android:theme="@style/PopUpActivity"
+            />
     </application>
 
 </manifest>

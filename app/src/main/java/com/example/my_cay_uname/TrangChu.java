@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.my_cay_uname.fragment.Fragment_LoaiMonAn;
 import com.example.my_cay_uname.fragment.Fragment_MonAn;
 import com.example.my_cay_uname.fragment.NhanvienFragment;
 import com.example.my_cay_uname.fragment.TrangChuFregment;
@@ -66,6 +67,9 @@ public class TrangChu extends AppCompatActivity implements NavigationView.OnNavi
                 break;
             case R.id.nav_monan:
                 getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new Fragment_MonAn()).commit();
+                break;
+            case R.id.nav_loaimonan:
+                getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new Fragment_LoaiMonAn()).commit();
                 break;
         }
         mDrawelayout.closeDrawer(GravityCompat.START);

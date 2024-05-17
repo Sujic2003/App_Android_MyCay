@@ -11,6 +11,9 @@
     <item
         android:id="@+id/item_ThemMonAn"
         android:title="Thêm món ăn"
-
+        />
+    <item
+        android:id="@+id/item_ThemLoaiMonAn"
+        android:title="Thêm Loại Món Ăn"
         />
 </menu>

@@ -47,9 +47,10 @@
     <string name="title_activity_trang_chu">TrangChu</string>
     //
     <string name="nav_nhanvien">Nhân Viên</string>
-    <string name="nav_monan">Món ăn</string>
-    <string name="nav_hoadon">Hóa đơn</string>
-    <string name="nav_dangxuat">Đăng xuất</string>
+    <string name="nav_monan">Món Ăn</string>
+    <string name="nav_loaimonan">Loại Món Ăn</string>
+    <string name="nav_hoadon">Hóa Đơn</string>
+    <string name="nav_dangxuat">Đăng Xuất</string>
 
     <string name="nav_drawer_open">Open navigation drawer</string>
     <string name="nav_drawer_close">Close navigation drawer</string>

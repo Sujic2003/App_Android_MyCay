@@ -13,19 +13,32 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.my_cay_uname.Adapter.Adapter_MonAn;
 import com.example.my_cay_uname.R;
 import com.example.my_cay_uname.ThemMonAn;
+import com.example.my_cay_uname.TrangChu;
+
+import java.util.List;
+
+import DAO.MonAnDAO;
+import DTO.MonAnDTO;
 
 public class Fragment_MonAn extends Fragment {
     public static int Request_code_them = 111;
+    List<MonAnDTO> listMonAn;
+    Adapter_MonAn adtMonAn;
+    MonAnDTO monAnDTO;
+    MonAnDAO monAnDAO;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.layout_hienthi_monan, container, false);
+        View view = inflater.inflate(R.layout.fragment_monan, container, false);
         setHasOptionsMenu(true);
+        //Đặt tiêu đề cho fragment
+        ((TrangChu)getActivity()).getSupportActionBar().setTitle("MÓN ĂN");
         return view;
     }
 
@@ -54,5 +67,13 @@ public class Fragment_MonAn extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == Request_code_them && resultCode == getActivity().RESULT_OK) {
+            HienThiMonAn(); // Cập nhật lại danh sách
+        }
+    }
+
+    // Hiển thị loại món ăn
+    private void HienThiMonAn() {
+        listMonAn = monAnDAO.
     }
 }

@@ -8,8 +8,11 @@
         <item android:id="@+id/nav_nhanvien"
             android:title="@string/nav_nhanvien"
             android:icon="@drawable/ic_nhanvien_background"/>
-            <item android:id="@+id/nav_monan"
+        <item android:id="@+id/nav_monan"
             android:title="@string/nav_monan"
+            android:icon="@drawable/ic_mycay_background"/>
+        <item android:id="@+id/nav_loaimonan"
+            android:title="@string/nav_loaimonan"
             android:icon="@drawable/ic_mycay_background"/>
         <item android:id="@+id/nav_hoadon"
             android:title="@string/nav_hoadon"
