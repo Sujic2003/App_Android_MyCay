@@ -75,18 +75,24 @@ public class MonAnDAO {
 
     // Hiển thị món ăn
     public List<MonAnDTO> LayDanhSachMonAn() {
-        List<MonAnDTO> listMonAn = new ArrayList<>();
-        Cursor cs = db.rawQuery("SELECT * FROM" + DataHelper.TB_MONAN, null);
-        cs.moveToFirst();
-        while (!cs.isAfterLast()) {
-            MonAnDTO monan = new MonAnDTO();
-            monan.setMAMONAN(cs.getInt(cs.getColumnIndex(DataHelper.MA_MAMONAN)));
-            monan.setTENMON(cs.getString(cs.getColumnIndex(DataHelper.MA_TENMON)));
-            monan.setGIATIEN(cs.getInt(cs.getColumnIndex(DataHelper.MA_GIATIEN)));
-            monan.setMALOAI(cs.getInt(cs.getColumnIndex(DataHelper.MA_MALOAI)));
-            listMonAn.add(monan);
-            cs.moveToNext();
+        List<MonAnDTO> lst = new ArrayList<>();
+
+        String sTruyVan = "SELECT * FROM " + DataHelper.TB_MONAN;
+        Cursor c = db.rawQuery(sTruyVan, null);
+        c.moveToFirst();
+        while (!c.isAfterLast())
+        {
+            MonAnDTO m = new MonAnDTO();
+            m.setMAMONAN(c.getInt(c.getColumnIndex(DataHelper.MA_MAMONAN)));
+            m.setTENMON(c.getString(c.getColumnIndex(DataHelper.MA_TENMON)));
+            m.setGIATIEN(c.getInt(c.getColumnIndex(DataHelper.MA_GIATIEN)));
+            m.setMALOAI(c.getInt(c.getColumnIndex(DataHelper.MA_MALOAI)));
+
+            lst.add(m);
+
+            c.moveToNext();
         }
-        return listMonAn;
+        c.close();
+        return lst;
     }
 }

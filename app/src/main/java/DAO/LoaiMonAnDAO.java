@@ -50,7 +50,7 @@ public class LoaiMonAnDAO {
     }
     // Xoá loại thức ăn
     public boolean XoaLoaiMonAn (int MaLoai) {
-        String queryDelete ="DELETE FROM" + DataHelper.TB_LOAIMONAN + " WHERE " + DataHelper.LMA_MALOAI + " = " + MaLoai;
+        String queryDelete ="DELETE FROM " + DataHelper.TB_LOAIMONAN + " WHERE " + DataHelper.LMA_MALOAI + " = " + MaLoai;
         try {
             // Thực hiên câu lênh xoá
             db.execSQL(queryDelete);
@@ -77,7 +77,18 @@ public class LoaiMonAnDAO {
             list.add(loai);
             cs.moveToNext();
         }
+        cs.close();
         return list;
     }
 
+    public String LayTenUngVoiMaLoai(int maloai) {
+        String tenloai = "";
+        String sTruyVan = "SELECT * FROM " + DataHelper.TB_LOAIMONAN + " WHERE " + DataHelper.LMA_MALOAI + " = " + maloai;
+        Cursor c = db.rawQuery(sTruyVan, null);
+        if (c.moveToFirst()) { // Di chuyển con trỏ đến dòng đầu tiên
+            tenloai = c.getString(c.getColumnIndex(DataHelper.LMA_TENLOAI));
+        }
+        c.close(); // Đóng Cursor sau khi sử dụng xong
+        return tenloai;
+    }
 }

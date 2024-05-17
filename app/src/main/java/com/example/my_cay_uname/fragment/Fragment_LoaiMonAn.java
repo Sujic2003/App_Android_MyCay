@@ -93,16 +93,14 @@ public class Fragment_LoaiMonAn extends Fragment {
                 builder.setPositiveButton("Xoá", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // Tạo và show hộp thoại
-                        AlertDialog show = builder.create();
-                        show.show();
+
                         // Lấy mã loại
                         int maloai = loaiMonAnDTO.getMALOAI();
                         // Thực hiện xoá loại theo mã
                         boolean check = loaiMonAnDAO.XoaLoaiMonAn(maloai);
                         if(check) {
                             HienThiLoaiMon();
-                            Toast.makeText(getActivity(), "Bạn đã xoá loại món ăn " + loaiMonAnDTO.getTENLOAI() + " thành công!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "Bạn đã xoá loại món ăn \"" + loaiMonAnDTO.getTENLOAI() + "\" thành công!", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(getActivity(), "Bạn đã xoá loại không thành công!", Toast.LENGTH_SHORT).show();
                         }
@@ -115,6 +113,7 @@ public class Fragment_LoaiMonAn extends Fragment {
                         dialog.cancel();
                     }
                 });
+
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
                 return true;

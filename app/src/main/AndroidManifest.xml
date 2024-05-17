@@ -64,7 +64,12 @@
         <activity
             android:name=".ThemLoaiMonAn"
             android:theme="@style/PopUpActivity"
+            android:label="LOẠI MÓN ĂN"
             />
+        <activity
+            android:name=".ThemLoaiMon_ActivityMonAn"
+            android:theme="@style/PopUpActivity"
+            android:label="LOẠI MÓN ĂN" />
     </application>
 
 </manifest>

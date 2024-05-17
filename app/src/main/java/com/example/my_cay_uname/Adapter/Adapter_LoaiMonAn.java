@@ -51,7 +51,7 @@ public class Adapter_LoaiMonAn extends BaseAdapter {
             viewHolderLoai = new ViewHolderLoai();
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             // set layout tên loại
-            view = inflater.inflate(R.layout.spiner_loaithucdon, parent, false);
+            view = inflater.inflate(R.layout.spiner_loaimonan, parent, false);
             viewHolderLoai.txtTenLoai = (TextView) view.findViewById(R.id.spinTenLoai);
 
             // Lưu
@@ -60,8 +60,8 @@ public class Adapter_LoaiMonAn extends BaseAdapter {
             viewHolderLoai = (ViewHolderLoai) view.getTag();
         }
         LoaiMonAnDTO loai = list_Loai.get(position);
-        viewHolderLoai.txtTenLoai.setText(loai.getMALOAI());
         viewHolderLoai.txtTenLoai.setText(loai.getTENLOAI());
+        viewHolderLoai.txtTenLoai.setTag(loai.getMALOAI());
         return view;
     }
 }
