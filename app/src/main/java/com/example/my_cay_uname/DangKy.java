@@ -1,7 +1,7 @@
 package com.example.my_cay_uname;
 
 import android.app.DatePickerDialog;
-import android.os.Build;
+//import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +27,8 @@ public class DangKy extends AppCompatActivity {
     Button btnChon, btnDK, btnDN;
     EditText edtHoTen, edtNgaySinh, edtTenDK, edtMK, edtXNMK;
     RadioButton rdNam, rdNu;
+
+    private NhanVienDAO dao_nv;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +46,7 @@ public class DangKy extends AppCompatActivity {
         rdNam = (RadioButton) findViewById(R.id.rd_Nam);
         rdNu = (RadioButton) findViewById(R.id.rd_Nu);
 
-        NhanVienDAO dao_nv = new NhanVienDAO(this);
+        dao_nv = new NhanVienDAO(this);
 
         btnChon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,7 +99,7 @@ public class DangKy extends AppCompatActivity {
                         nv.setGIOITINH(gioitinh);
                         nv.setTENDN(tendn);
                         nv.setMATKHAU(mk);
-                        boolean kt = dao_nv.addNhanVien(nv);
+                        boolean kt = dao_nv.addNhanVIen(nv);
                         if (kt){
                             Toast.makeText(DangKy.this, "Đăng kí thành công.", Toast.LENGTH_LONG).show();
                             finish();
@@ -113,6 +115,7 @@ public class DangKy extends AppCompatActivity {
         btnDN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 finish();
             }
         });

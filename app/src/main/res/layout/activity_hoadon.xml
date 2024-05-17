@@ -4,8 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HoaDon"
-    >
+    tools:context=".HoaDon">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,10 +28,9 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="136dp"
                     android:layout_height="50dp"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="8dp"
                     android:layout_margin="10dp"
-                    ><!-- Tùy chọn: đặt độ nâng của thẻ -->
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="8dp"><!-- Tùy chọn: đặt độ nâng của thẻ -->
 
                     <!-- Nội dung của CardView -->
                     <Button
@@ -45,63 +48,77 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="136dp"
                     android:layout_height="50dp"
+                    android:layout_margin="10dp"
                     app:cardCornerRadius="20dp"
-                    app:cardElevation="4dp"
-                    android:layout_margin="10dp"><!-- Tùy chọn: đặt độ nâng của thẻ -->
-                <Button
-                    android:id="@+id/btn_T1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Tầng 1"
-                    app:backgroundTint="@null"
-                    android:background="@color/button_background_initial"
-                    android:textColor="@color/button_text_initial"/>
+                    app:cardElevation="4dp"><!-- Tùy chọn: đặt độ nâng của thẻ -->
+                    <Button
+                        android:id="@+id/btn_T1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/button_background_initial"
+                        android:text="Tầng 1"
+                        android:textColor="@color/button_text_initial"
+                        app:backgroundTint="@null" />
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="136dp"
                     android:layout_height="50dp"
+                    android:layout_margin="10dp"
                     app:cardCornerRadius="20dp"
-                    app:cardElevation="4dp"
-                    android:layout_margin="10dp">
-                <Button
-                    android:id="@+id/btn_T2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/button_background_initial"
-                    android:text="Tầng 2"
-                    android:textColor="@color/button_text_initial"
-                    app:backgroundTint="@null" />
+                    app:cardElevation="4dp">
+
+                    <Button
+                        android:id="@+id/btn_T2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/button_background_initial"
+                        android:text="Tầng 2"
+                        android:textColor="@color/button_text_initial"
+                        app:backgroundTint="@null" />
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="136dp"
                     android:layout_height="50dp"
+                    android:layout_margin="10dp"
                     app:cardCornerRadius="20dp"
-                    app:cardElevation="4dp"
-                    android:layout_margin="10dp">
-                <Button
-                    android:id="@+id/btn_MV"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Mang về"
-                    app:backgroundTint="@null"
-                    android:background="@color/button_background_initial"
-                    android:textColor="@color/button_text_initial"/>
-                </androidx.cardview.widget.CardView>
+                    app:cardElevation="4dp">
 
+                    <Button
+                        android:id="@+id/btn_MV"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/button_background_initial"
+                        android:text="Mang về"
+                        android:textColor="@color/button_text_initial"
+                        app:backgroundTint="@null" />
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
+
         </HorizontalScrollView>
 
         <GridView
             android:id="@+id/gridView_HoaDon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:numColumns="2"
             android:layout_marginTop="10dp"
-
-            />
+            android:numColumns="2" />
 
     </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_ThemHoaDon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="32dp"
+            android:backgroundTint="@color/custom_seconds"
+            android:src="@drawable/baseline_add_circle_24">
+
+        </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+    </FrameLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,20 +12,23 @@
         android:id="@+id/txtsignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
         android:lineSpacingExtra="-1sp"
         android:text="Đăng ký"
-        android:textStyle="bold"
         android:textAlignment="center"
-        android:textColor="#966A4B"
+        android:textColor="#956A4B"
         android:textSize="48sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="54dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/edt_HoTen"
         android:layout_width="350dp"
         android:layout_height="50dp"
+        android:layout_marginTop="111dp"
         android:background="@drawable/edittext_background"
         android:ems="10"
         android:hint="Họ và tên"
@@ -34,12 +37,13 @@
         android:paddingEnd="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="159dp" />
+        app:layout_constraintTop_toTopOf="@+id/txtsignup" />
 
     <EditText
         android:id="@+id/edt_NgaySinh"
         android:layout_width="240dp"
         android:layout_height="50dp"
+        android:layout_marginTop="36dp"
         android:background="@drawable/edittext_background"
         android:ems="10"
         android:enabled="false"
@@ -47,8 +51,10 @@
         android:inputType="datetime"
         android:paddingStart="15dp"
         android:paddingEnd="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/edt_HoTen"
-        tools:layout_editor_absoluteY="232dp" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_HoTen" />
 
     <Button
         android:id="@+id/btn_ChonNS"
@@ -72,11 +78,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
         android:text="Giới tính: "
         android:textColor="#000000"
         android:textSize="19sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/edt_NgaySinh"
-        tools:layout_editor_absoluteY="316dp" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_NgaySinh" />
 
     <RadioGroup
         android:id="@+id/rdGroup_GT"
@@ -93,8 +102,8 @@
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="Nam"
-            android:textColorLink="@color/custom_transparent"
-            android:textSize="18sp"
+            android:textColorLink="@color/custom_maroon"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/textView"
             app:layout_constraintStart_toEndOf="@+id/textView"
             app:layout_constraintTop_toTopOf="@+id/textView" />
@@ -105,8 +114,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:text="Nữ"
-            android:textColorLink="@color/custom_transparent"
-            android:textSize="18sp"
+            android:textColorLink="@color/custom_maroon"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/textView"
             app:layout_constraintStart_toEndOf="@+id/textView"
             app:layout_constraintTop_toTopOf="@+id/textView" />
@@ -117,14 +126,17 @@
         android:id="@+id/edt_TenDK"
         android:layout_width="350dp"
         android:layout_height="50dp"
+        android:layout_marginTop="56dp"
         android:background="@drawable/edittext_background"
         android:ems="10"
         android:hint="Tên đăng ký"
         android:inputType="text"
         android:paddingStart="15dp"
         android:paddingEnd="15dp"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="376dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_GT" />
 
     <EditText
         android:id="@+id/edt_MatKhau"
@@ -163,7 +175,7 @@
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:backgroundTint="#956A4B"
+        android:backgroundTint="@color/custom_orange"
         android:paddingTop="12dp"
         android:paddingBottom="12dp"
         android:text="Đăng ký"

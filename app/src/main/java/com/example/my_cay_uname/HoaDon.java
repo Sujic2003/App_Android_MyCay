@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import com.example.my_cay_uname.Adapter.Adapter_HoaDon;
+
 import java.util.List;
 
 import DAO.HoaDonDAO;
@@ -104,7 +106,11 @@ public class HoaDon extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 try {
-
+                    // Chọn vào một hoá đơn
+                    String selectedHoaDon = String.valueOf(bills.get(position));
+                    Intent intent = new Intent(getApplication(), ThanhToan.class);
+                    intent.putExtra("selectedHoaDon", selectedHoaDon);
+                    startActivity(intent);
                 }
                 catch (Exception e){
                     Toast.makeText(getApplicationContext(), "Không thể thực hiện!!!", Toast.LENGTH_SHORT).show();

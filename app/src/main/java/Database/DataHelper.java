@@ -43,6 +43,7 @@ public class DataHelper extends SQLiteOpenHelper {
 
     //----- Tên các trường TB_BAN
     public static String BAN_MABAN = "MABAN";
+    public static String BAN_TENBAN = "TENBAN";
     public static String BAN_TINHTRNAG = "TINHTRANG";
 
     //----- Tên các trường TB_GOIMON
@@ -88,6 +89,7 @@ public class DataHelper extends SQLiteOpenHelper {
 
         String tbBAN = "CREATE TABLE " + TB_BAN + " ( " +
                 BAN_MABAN + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                BAN_TENBAN + " TEXT NOT NULL, " +
                 BAN_TINHTRNAG + " TEXT NOT NULL ) " ;
 
         String tbGOIMON = "CREATE TABLE " + TB_GOIMON + " ( " +
@@ -181,42 +183,52 @@ public class DataHelper extends SQLiteOpenHelper {
     private void create_dataBan(SQLiteDatabase db) {
         ContentValues values = new ContentValues();
         // Thêm dữ liệu mặc định cho bảng Bàn
+        values.put(BAN_TENBAN, "Bàn 1");
         values.put(BAN_TINHTRNAG, "Trống");
         db.insert(TB_BAN, null  , values);
         //
         values.clear();
+        values.put(BAN_TENBAN, "Bàn 2");
         values.put(BAN_TINHTRNAG, "Trống");
         db.insert(TB_BAN, null, values);
         //
         values.clear();
+        values.put(BAN_TENBAN, "Bàn 3");
         values.put(BAN_TINHTRNAG, "Đầy");
         db.insert(TB_BAN, null, values);
         //
         values.clear();
+        values.put(BAN_TENBAN, "Bàn 4");
         values.put(BAN_TINHTRNAG, "Đầy");
         db.insert(TB_BAN, null, values);
         //
         values.clear();
+        values.put(BAN_TENBAN, "Bàn 5");
         values.put(BAN_TINHTRNAG, "Trống");
         db.insert(TB_BAN, null, values);
         //
         values.clear();
+        values.put(BAN_TENBAN, "Bàn 6");
         values.put(BAN_TINHTRNAG, "Đầy");
         db.insert(TB_BAN, null, values);
         //
         values.clear();
+        values.put(BAN_TENBAN, "Bàn 7");
         values.put(BAN_TINHTRNAG, "Đầy");
         db.insert(TB_BAN, null, values);
         //
         values.clear();
+        values.put(BAN_TENBAN, "Bàn 8");
         values.put(BAN_TINHTRNAG, "Trống");
         db.insert(TB_BAN, null, values);
         //
         values.clear();
+        values.put(BAN_TENBAN, "Bàn 9");
         values.put(BAN_TINHTRNAG, "Trống");
         db.insert(TB_BAN, null, values);
         //
         values.clear();
+        values.put(BAN_TENBAN, "Bàn 10");
         values.put(BAN_TINHTRNAG, "Trống");
         db.insert(TB_BAN, null, values);
 

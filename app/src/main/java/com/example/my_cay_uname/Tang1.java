@@ -9,7 +9,8 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 
-import java.util.ArrayList;
+import com.example.my_cay_uname.Adapter.Adapter_Table;
+
 import java.util.List;
 
 import DAO.BanDAO;
@@ -17,7 +18,7 @@ import DTO.BanDTO;
 
 public class Tang1 extends AppCompatActivity {
     Button btnHD, btnT1, btnT2, btnMV;
-    Adapter_Table myadapter;
+        Adapter_Table myadapter;
     GridView Grid_table;
     BanDAO banDAO ;
     List<BanDTO> tables;

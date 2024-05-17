@@ -15,12 +15,11 @@ import Database.DataHelper;
 
 public class NhanVienDAO {
     //-------
-    private  static SQLiteDatabase db; //Tạo biến thực hiện trên CSDL
-    private DataHelper dbHelper;// Tạo và hỗ trợ cập nhật dữ liệu qua CSDL
-    private Context context; //Lưu trữ và truy cập ngữ cảnh ứng dụng
+    SQLiteDatabase db; //Tạo biến thực hiện trên CSDL
+     DataHelper dbHelper;// Tạo và hỗ trợ cập nhật dữ liệu qua CSDL
+     Context context; //Lưu trữ và truy cập ngữ cảnh ứng dụng
 
     public NhanVienDAO(Context context) {
-        this.context = context;
         dbHelper = new DataHelper(context);
         db = dbHelper.getWritableDatabase(); // Cho phép ghi dữ liệu vào database
     }
@@ -42,25 +41,96 @@ public class NhanVienDAO {
     //------- Sửa Nhân Viên
 
     //------- Hiển thị Nhân Viên
-    public static List<NhanVienDTO> getNhanVien() {
-        List<NhanVienDTO> list = new ArrayList<>(); //Tạo danh sách rỗng
+    public List<NhanVienDTO> getNhanVien() {
+        List<NhanVienDTO> list = new ArrayList<NhanVienDTO>();
         // Lấy dữ liệu
-        Cursor cs = db.rawQuery("SELECT * FROM NHANVIEN", null);
+        Cursor cs = db.rawQuery("SELECT * FROM "+DataHelper.TB_NHANVIEN, null);
         cs.moveToFirst();
         while (!cs.isAfterLast()) {
             NhanVienDTO nv = new NhanVienDTO();// Tạo đối tượng
-            nv.setMANV(cs.getInt(0));
-            nv.setTENNV(cs.getString(1));
-            nv.setTENDN(cs.getString(2));
-            nv.setMATKHAU(cs.getString(3));
-            nv.setGIOITINH(cs.getString(4));
-            nv.setNGAYSINH(cs.getString(5));
+            nv.setMANV(cs.getInt(cs.getColumnIndex(DataHelper.NV_MANV)));
+            nv.setTENNV(cs.getString(cs.getColumnIndex(DataHelper.NV_TENNV)));
+            nv.setTENDN(cs.getString(cs.getColumnIndex(DataHelper.NV_TENDN)));
+            nv.setMATKHAU(cs.getString(cs.getColumnIndex(DataHelper.NV_MATKHAU)));
+            nv.setGIOITINH(cs.getString(cs.getColumnIndex(DataHelper.NV_GIOITINH)));
+            nv.setNGAYSINH(cs.getString(cs.getColumnIndex(DataHelper.NV_NGAYSINH)));
             list.add(nv);
             cs.moveToNext();
         }
-        cs.close();
         return list;
     }
+    public boolean addNhanVIen(NhanVienDTO nv)
+    {
+        ContentValues values = new ContentValues();
+        values.put(DataHelper.NV_TENNV, nv.getTENNV());
+        values.put(DataHelper.NV_NGAYSINH, nv.getNGAYSINH());
+        values.put(DataHelper.NV_GIOITINH, nv.getGIOITINH());
+        values.put(DataHelper.NV_TENDN, nv.getTENDN());
+        values.put(DataHelper.NV_MATKHAU, nv.getMATKHAU());
 
+        long kt = db.insert(DataHelper.TB_NHANVIEN, null, values);
+        if(kt ==-1)
+        {
+            return false;
+        }
+        else {
+            return true;
+        }
+
+    }
+    public  boolean updateNhanVien(NhanVienDTO nv){
+        ContentValues values = new ContentValues();
+        values.put(DataHelper.NV_TENNV, nv.getTENNV());
+        values.put(DataHelper.NV_NGAYSINH, nv.getNGAYSINH());
+        values.put(DataHelper.NV_GIOITINH, nv.getGIOITINH());
+        long kt = db.update(DataHelper.TB_NHANVIEN, values, DataHelper.NV_MANV+"=?", new String[]{String.valueOf((nv.getMANV()))});
+        if(kt==-1)
+        {
+            return false;
+        }
+        else {
+            return true;
+        }
+
+    }
+    public boolean deleteNhanVien(int manv){
+        long kt = db.delete(DataHelper.TB_NHANVIEN, DataHelper.NV_MANV+"=?", new String[]{String.valueOf(manv)});
+        if(kt==-1)
+            return false;
+        else
+            return true;
+    }
+    public boolean KiemTraDN(String tendn, String mk)
+    {
+        String sTruyVan = "SELECT * FROM " + DataHelper.TB_NHANVIEN
+                + " WHERE " + DataHelper.NV_TENDN + " = '" + tendn
+                + "' AND " + DataHelper.NV_MATKHAU + " = '" + mk + "'";
+
+        Cursor c = db.rawQuery(sTruyVan, null);
+        if (c.getCount() != 0)
+            return true;
+        else
+            return false;
+    }
+    public boolean updateMatKhau(String tendn, String mk){
+        ContentValues values = new ContentValues();
+        values.put(DataHelper.NV_MATKHAU, mk);
+        long kt = db.update(DataHelper.TB_NHANVIEN, values,DataHelper.NV_TENDN+"=?", new String[]{String.valueOf(tendn)});
+        if(kt==-1)
+            return false;
+        else
+            return true;
+    }
+
+    public boolean ktraNguoiDung(String tendn) {
+        String sTruyVan = "SELECT * FROM " + DataHelper.TB_NHANVIEN
+                + " WHERE " + DataHelper.NV_TENDN + " = '" + tendn + "'";
+
+        Cursor c = db.rawQuery(sTruyVan, null);
+        if (c.getCount() != 0)
+            return true;
+        else
+            return false;
+    }
 
 }

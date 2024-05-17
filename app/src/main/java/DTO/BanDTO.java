@@ -2,10 +2,12 @@ package DTO;
 
 public class BanDTO {
     private  int MABAN;
+    private String TENBAN;
     private String TINHTRANG;
 
-    public BanDTO(int MABAN, String TINHTRANG) {
+    public BanDTO(int MABAN, String TENBAN, String TINHTRANG) {
         this.MABAN = MABAN;
+        this.TENBAN = TENBAN;
         this.TINHTRANG = TINHTRANG;
     }
 
@@ -26,5 +28,13 @@ public class BanDTO {
 
     public void setTINHTRANG(String TINHTRANG) {
         this.TINHTRANG = TINHTRANG;
+    }
+
+    public String getTENBAN() {
+        return TENBAN;
+    }
+
+    public void setTENBAN(String TENBAN) {
+        this.TENBAN = TENBAN;
     }
 }

@@ -8,19 +8,9 @@ public class NhanVienDTO {
     private String GIOITINH;
     private String NGAYSINH;
 
-    // Hàm khởi tạo không tham số
-    public NhanVienDTO() {
-    }
 
     // Hàm khởi tạo có tham số
-    public NhanVienDTO(int MANV, String TENNV, String TENDN, String MATKHAU, String GIOITINH, String NGAYSINH) {
-        this.MANV = MANV;
-        this.TENNV = TENNV;
-        this.TENDN = TENDN;
-        this.MATKHAU = MATKHAU;
-        this.GIOITINH = GIOITINH;
-        this.NGAYSINH = NGAYSINH;
-    }
+
 
     public int getMANV() {
         return MANV;

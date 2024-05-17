@@ -32,14 +32,14 @@ public class Adapter_GioHang extends RecyclerView.Adapter<Adapter_GioHang.MyView
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        GioHang gioHang = gioHangList.get(position);
-        holder.item_giohang_tensp.setText(gioHang.getTensp());
-        holder.item_giohang_soluong.setText(gioHang.getSoluong());
-        Glide.with(context).load(gioHang.getSoluong()).into(holder.item_giohang_image);
-        DecimalFormat decimalFormat = new DecimalFormat("###, ###, ###");
-        holder.item_giohang_gia.setText(decimalFormat.format((gioHang.getGiasp()))+ "Đ");
-        long gia = gioHang.getSoluong() * gioHang.getGiasp();
-        holder.item_giohang_gia.setText();
+//        GioHang gioHang = gioHangList.get(position);
+//        holder.item_giohang_tensp.setText(gioHang.getTensp());
+//        holder.item_giohang_soluong.setText(gioHang.getSoluong());
+//        Glide.with(context).load(gioHang.getSoluong()).into(holder.item_giohang_image);
+//        DecimalFormat decimalFormat = new DecimalFormat("###, ###, ###");
+//        holder.item_giohang_gia.setText(decimalFormat.format((gioHang.getGiasp()))+ "Đ");
+//        long gia = gioHang.getSoluong() * gioHang.getGiasp();
+//        holder.item_giohang_gia.setText();
 
     }
 
