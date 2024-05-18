@@ -18,9 +18,9 @@
             android:title="@string/nav_loaimonan"
             android:icon="@drawable/ic_mycay_background"/>
 
-        <item android:id="@+id/nav_hoadon"
-            android:title="@string/nav_hoadon"
-            android:icon="@drawable/iconsbill"/>
+<!--        <item android:id="@+id/nav_hoadon"-->
+<!--            android:title="@string/nav_hoadon"-->
+<!--            android:icon="@drawable/iconsbill"/>-->
 
         <item android:id="@+id/nav_doimatkhau"
             android:title="Đổi mật khẩu"

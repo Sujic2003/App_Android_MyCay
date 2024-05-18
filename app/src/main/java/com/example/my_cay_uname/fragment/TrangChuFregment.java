@@ -26,6 +26,7 @@ import com.example.my_cay_uname.Table;
 import com.example.my_cay_uname.Tang1;
 import com.example.my_cay_uname.ThemBanAn;
 import com.example.my_cay_uname.ThemNhanVien;
+import com.example.my_cay_uname.TrangChu;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
@@ -49,6 +50,7 @@ public class TrangChuFregment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_trang_chu,container,false);
         setHasOptionsMenu(true);
+        ((TrangChu)getActivity()).getSupportActionBar().setTitle("MỲ CAY TITP");
         gridView = (GridView) view.findViewById(R.id.gv_Ban);
         banDAO = new BanDAO(getActivity());
         banDTOList = banDAO.getAll_Table();

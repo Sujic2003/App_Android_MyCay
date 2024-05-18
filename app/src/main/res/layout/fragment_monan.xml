@@ -10,7 +10,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        >
 
         <!-- Header title for information section -->
         <TextView
@@ -20,8 +22,8 @@
             android:textSize="20dp"
             android:textStyle="bold"
             android:gravity="center"
-            android:background="@color/custom_seconds"
-            android:padding="5dp" />
+            android:padding="5dp"
+            />
 
         <!-- Container for information and actions -->
         <LinearLayout
@@ -45,7 +47,8 @@
                     android:background="@drawable/kimchisuonsun"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
 
                 <!-- Action buttons container -->
                 <LinearLayout
@@ -67,7 +70,8 @@
                         android:background="@drawable/layout_background_radius_green"
                         android:text="LƯU"
                         android:textColor="#ffffff"
-                        android:textSize="20dp" />
+                        android:textSize="20dp"
+                        />
 
                     <!-- Exit button -->
                     <Button

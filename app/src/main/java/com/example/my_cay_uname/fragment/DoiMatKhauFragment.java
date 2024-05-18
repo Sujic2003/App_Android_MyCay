@@ -26,7 +26,7 @@ public class DoiMatKhauFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_doimatkhau, container, false);
-
+        ((TrangChu)getActivity()).getSupportActionBar().setTitle("TÀI KHOẢN");
         edtMKcu = (EditText) view.findViewById(R.id.edt_MKCu);
         edtMKmoi = (EditText) view.findViewById(R.id.edt_MKMoi);
         edtXNMK = (EditText) view.findViewById(R.id.edt_XNMK);

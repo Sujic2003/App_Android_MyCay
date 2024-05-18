@@ -26,6 +26,7 @@ import androidx.fragment.app.Fragment;
 import com.example.my_cay_uname.Adapter.Adapter_NhanVien;
 import com.example.my_cay_uname.R;
 import com.example.my_cay_uname.ThemNhanVien;
+import com.example.my_cay_uname.TrangChu;
 
 import java.util.Calendar;
 import java.util.List;
@@ -51,6 +52,7 @@ public class NhanvienFragment extends Fragment {
         // Inflate the layout for this fragment
         setHasOptionsMenu(true);
         View view = inflater.inflate(R.layout.fragment_nhanvien, container, false);
+        ((TrangChu)getActivity()).getSupportActionBar().setTitle("NHÂN VIÊN");
         listView = (ListView) view.findViewById(R.id.listview_nhanvien);
 
         rdNam = (RadioButton) view.findViewById(R.id.rd_Nam);
