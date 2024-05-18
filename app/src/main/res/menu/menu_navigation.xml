@@ -14,6 +14,10 @@
             android:title="@string/nav_monan"
             android:icon="@drawable/ic_mycay_background"/>
 
+        <item android:id="@+id/nav_loaimonan"
+            android:title="@string/nav_loaimonan"
+            android:icon="@drawable/ic_mycay_background"/>
+
         <item android:id="@+id/nav_hoadon"
             android:title="@string/nav_hoadon"
             android:icon="@drawable/ic_hoadon_background"/>

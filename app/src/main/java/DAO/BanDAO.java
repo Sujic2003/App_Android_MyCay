@@ -26,7 +26,7 @@ public class BanDAO {
         //Truy vấn
         String truyvan = "SELECT * FROM " + DataHelper.TB_BAN;
         //Khởi tạo con trỏ
-        Cursor cs =db.rawQuery(truyvan , null);
+        Cursor cs = db.rawQuery(truyvan , null);
         cs.moveToFirst();
         while (!cs.isAfterLast()){
             //
@@ -37,6 +37,7 @@ public class BanDAO {
             banDTOList.add(ban);
             cs.moveToNext();
         }
+        cs.close();
         return banDTOList;
     }
     public boolean addBanAn(String tenban)

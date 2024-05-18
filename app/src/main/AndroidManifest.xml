@@ -65,9 +65,19 @@
             android:name=".HoaDon"
             android:exported="false" />
 
-        <activity android:name=".ThemMonAn"
-                android:theme="@style/PopUpActivity"
-            ></activity>
+        <activity
+            android:name=".ThemMonAn"
+            android:exported="false"/>
+
+        <activity
+            android:name=".ThemLoaiMonAn"
+            android:theme="@style/PopUpActivity"
+            android:label="LOẠI MÓN ĂN"
+            />
+        <activity
+            android:name=".ThemLoaiMon_ActivityMonAn"
+            android:theme="@style/PopUpActivity"
+            android:label="LOẠI MÓN ĂN" />
 
     </application>
 

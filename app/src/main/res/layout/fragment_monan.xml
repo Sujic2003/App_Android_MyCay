@@ -6,35 +6,37 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
+    <!-- Container for the content -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!-- Header title for information section -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="THÔNG TIN MÓN"
+            android:text="CẬP NHẬT MÓN ĂN"
             android:textSize="20dp"
             android:textStyle="bold"
             android:gravity="center"
             android:background="@color/custom_seconds"
-            android:padding="5dp"
-            />
+            android:padding="5dp" />
 
+        <!-- Container for information and actions -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginBottom="10dp"
-            >
+            android:layout_marginBottom="10dp">
 
+            <!-- Image and action buttons container -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="186dp"
                 android:layout_margin="10dp">
 
+                <!-- ImageView for displaying food item image -->
                 <ImageView
                     android:id="@+id/imgAnhMA"
                     android:layout_width="211dp"
@@ -45,6 +47,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <!-- Action buttons container -->
                 <LinearLayout
                     android:layout_width="166dp"
                     android:layout_height="143dp"
@@ -54,6 +57,7 @@
                     app:layout_constraintStart_toEndOf="@+id/imgAnhMA"
                     app:layout_constraintTop_toTopOf="parent">
 
+                    <!-- Save button -->
                     <Button
                         android:id="@+id/TT_btnLuuMon"
                         android:layout_width="match_parent"
@@ -65,6 +69,7 @@
                         android:textColor="#ffffff"
                         android:textSize="20dp" />
 
+                    <!-- Exit button -->
                     <Button
                         android:id="@+id/TT_btnThoatThemMon"
                         android:layout_width="match_parent"
@@ -75,53 +80,50 @@
                         android:text="THOÁT"
                         android:textColor="#ffffff"
                         android:textSize="20dp" />
-
-
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <!-- Input fields container -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical">
 
+                <!-- EditText for entering food name -->
+                <EditText
+                    android:id="@+id/TT_editTenMA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:padding="10dp"
+                    android:background="@drawable/layout_background_radius"
+                    android:hint="Tên món ăn"
+                    android:textSize="18dp" />
 
-            <EditText
-                android:id="@+id/TT_editTenMA"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:padding="10dp"
-                android:background="@drawable/layout_background_radius"
-                android:hint="Tên món ăn"
-                android:textSize="18dp"
-                />
+                <!-- EditText for entering food price -->
+                <EditText
+                    android:id="@+id/TT_editGiaTien"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:padding="10dp"
+                    android:background="@drawable/layout_background_radius"
+                    android:hint="Giá tiền"
+                    android:textSize="18dp"
+                    android:inputType="number" />
 
-            <EditText
-                android:id="@+id/TT_editGiaTien"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:padding="10dp"
-                android:background="@drawable/layout_background_radius"
-                android:hint="Giá tiền"
-                android:textSize="18dp"
-
-                />
-            <Spinner
-                android:id="@+id/TT_spnLoaiMA"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:padding="10dp"
-
-                android:background="@drawable/layout_background_radius"
-                />
+                <!-- Spinner for selecting food type -->
+                <Spinner
+                    android:id="@+id/TT_spnLoaiMA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/layout_background_radius"
+                    />
             </LinearLayout>
-
         </LinearLayout>
 
+        <!-- Footer title for the list section -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -132,9 +134,10 @@
             android:textColor="#ffffff"
             android:textSize="20dp" />
 
+        <!-- ListView for displaying food items -->
         <ListView
             android:id="@+id/lvMonAn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp" />
     </LinearLayout>

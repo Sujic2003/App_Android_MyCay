@@ -19,6 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="8dp"
+        android:layout_margin="10dp"
         >
         <ImageView
             android:id="@+id/anhMA"
@@ -60,6 +61,7 @@
                 android:background="@drawable/layout_background_radius"
                 android:hint="Giá tiền"
                 android:textColor="@color/custom_black"
+                android:inputType="number"
                 />
 
             <LinearLayout
@@ -73,7 +75,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_margin="10dp"
-                    android:padding="15dp"
+                    android:background="@drawable/layout_background_radius"
                     />
 
                 <ImageButton
