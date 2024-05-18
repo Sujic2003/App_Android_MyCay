@@ -122,4 +122,15 @@ public class NhanVienDAO {
             return true;
     }
 
+    public boolean ktraNguoiDung(String tendn) {
+        String sTruyVan = "SELECT * FROM " + DataHelper.TB_NHANVIEN
+                + " WHERE " + DataHelper.NV_TENDN + " = '" + tendn + "'";
+
+        Cursor c = db.rawQuery(sTruyVan, null);
+        if (c.getCount() != 0)
+            return true;
+        else
+            return false;
+    }
+
 }

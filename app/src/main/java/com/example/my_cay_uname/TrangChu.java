@@ -11,9 +11,12 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.my_cay_uname.fragment.DoiMatKhauFragment;
 import com.example.my_cay_uname.fragment.Fragment_MonAn;
@@ -78,6 +81,29 @@ public class TrangChu extends AppCompatActivity implements NavigationView.OnNavi
                 break;
             case R.id.nav_doimatkhau:
                 getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new DoiMatKhauFragment()).commit();
+                break;
+            case R.id.nav_dangxuat:
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+                builder1.setTitle("Xác nhận");
+                builder1.setMessage("Bạn có muốn đăng xuất?");
+                builder1.setCancelable(true);
+                builder1.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(TrangChu.this, "Đã đăng xuất", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(TrangChu.this, Login.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+                builder1.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog alertDialog1 = builder1.create();
+                alertDialog1.show();
                 break;
         }
         mDrawelayout.closeDrawer(GravityCompat.START);
