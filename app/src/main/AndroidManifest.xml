@@ -53,15 +53,6 @@
             android:exported="false"
             android:label="@string/title_activity_menu" />
         <activity
-            android:name=".MangVe"
-            android:exported="false" />
-        <activity
-            android:name=".Tang2"
-            android:exported="false" />
-        <activity
-            android:name=".Tang1"
-            android:exported="false" />
-        <activity
             android:name=".HoaDon"
             android:exported="false" />
 

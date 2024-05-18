@@ -22,7 +22,7 @@ public class BanDAO {
     }
 
     public List<BanDTO> getAll_Table(){
-        List<BanDTO> banDTOList = new ArrayList<BanDTO>();//Tạo danh sách rỗng
+        List<BanDTO> banDTOList = new ArrayList<>();//Tạo danh sách rỗng
         //Truy vấn
         String truyvan = "SELECT * FROM " + DataHelper.TB_BAN;
         //Khởi tạo con trỏ
@@ -37,7 +37,6 @@ public class BanDAO {
             banDTOList.add(ban);
             cs.moveToNext();
         }
-        cs.close();
         return banDTOList;
     }
     public boolean addBanAn(String tenban)

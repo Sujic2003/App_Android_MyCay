@@ -8,11 +8,11 @@
 
         <item android:id="@+id/nav_nhanvien"
             android:title="@string/nav_nhanvien"
-            android:icon="@drawable/ic_nhanvien_background"/>
+            android:icon="@drawable/iconsaccount2"/>
 
         <item android:id="@+id/nav_monan"
             android:title="@string/nav_monan"
-            android:icon="@drawable/ic_mycay_background"/>
+            android:icon="@drawable/icons8kawaiinoodle"/>
 
         <item android:id="@+id/nav_loaimonan"
             android:title="@string/nav_loaimonan"
@@ -20,15 +20,15 @@
 
         <item android:id="@+id/nav_hoadon"
             android:title="@string/nav_hoadon"
-            android:icon="@drawable/ic_hoadon_background"/>
+            android:icon="@drawable/iconsbill"/>
 
         <item android:id="@+id/nav_doimatkhau"
             android:title="Đổi mật khẩu"
-            android:src="@drawable/ic_dangxuat_background"/>
+            android:icon="@drawable/iconswrench"/>
 
         <item android:id="@+id/nav_dangxuat"
             android:title="@string/nav_dangxuat"
-            android:src="@drawable/ic_dangxuat_background"/>
+            android:icon="@drawable/iconslogoudark"/>
 
     </group>
 

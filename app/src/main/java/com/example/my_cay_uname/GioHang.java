@@ -38,9 +38,4 @@ public class GioHang extends AppCompatActivity {
         btnmuahang = findViewById(R.id.btnmuahang);
     }
 
-//    public int getTensp() {
-//    }
-//
-//    public int getSoluong() {
-//    }
 }
