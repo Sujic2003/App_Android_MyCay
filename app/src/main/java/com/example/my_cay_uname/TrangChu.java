@@ -72,7 +72,6 @@ public class TrangChu extends AppCompatActivity implements NavigationView.OnNavi
             case R.id.nav_TrangChu:
                 getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new TrangChuFregment()).commit();
                 break;
-
             case R.id.nav_nhanvien:
                 getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new NhanvienFragment()).commit();
                 break;
@@ -81,9 +80,9 @@ public class TrangChu extends AppCompatActivity implements NavigationView.OnNavi
                 break;
             case R.id.nav_doimatkhau:
                 getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new DoiMatKhauFragment()).commit();
+                break;
             case R.id.nav_loaimonan:
                 getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new Fragment_LoaiMonAn()).commit();
-
                 break;
             case R.id.nav_dangxuat:
                 AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
